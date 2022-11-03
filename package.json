@@ -1,5 +1,5 @@
 {
-  "name": "leyesabiertas-web",
+  "name": "colectiva-web",
   "version": "1.9.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DemocraciaEnRed/leyesabiertas-web.git"
+    "url": "git+https://github.com/DemocraciaEnRed/colectiva-web.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DemocraciaEnRed/leyesabiertas-web/issues"
+    "url": "https://github.com/DemocraciaEnRed/colectiva-web/issues"
   },
-  "homepage": "https://github.com/DemocraciaEnRed/leyesabiertas-web#readme",
+  "homepage": "https://github.com/DemocraciaEnRed/colectiva-web#readme",
   "dependencies": {
     "@react-hook/media-query": "^1.1.1",
     "dotenv": "^6.2.0",
