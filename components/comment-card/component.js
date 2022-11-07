@@ -33,7 +33,7 @@ const StyledCommentCard = styled.div`
   }
 `
 const StyledLikeWrapper = styled.div`
-  color: ${({ liked }) => liked ? '#ef885d' : '#5c97bc'};
+  color: ${({ liked }) => liked ? '#ef885d' : '#FB5735'};
   cursor: pointer;
   font-size: 14px;
   display: inline-block;
@@ -42,14 +42,14 @@ const StyledLikeWrapper = styled.div`
 
 const StyledIconWrapper = styled.div`
   margin-top: 11px;
-  color: ${({ active }) => active ? '#ef885d' : '#5c97bc'};
+  color: ${({ active }) => active ? '#ef885d' : '#FB5735'};
   cursor: pointer;
   display: flex;
   align-items: center;
 `
 
 const SelectCommentText = styled.span`
-  color: ${({ active }) => active ? '#ef885d' : '#5c97bc'};
+  color: ${({ active }) => active ? '#ef885d' : '#FB5735'};
   margin-left: 5px;
   font-size: 14px;
 `
@@ -61,7 +61,7 @@ const StyledCheckbox = styled.input`
 const StyledDeleteWrapper = styled.div`
   float: right;
   margin-left: 10px;
-  color: #5c97bc;
+  color: #FB5735;
   &:hover{
     color: #ef885d;
     cursor: pointer;

@@ -43,7 +43,7 @@ const ProjectsTableCell = styled.td`
   text-align: ${(props) => props.centered ? 'center' : 'left'};
   border-bottom: 1px solid #cacaca;
   & > a{
-    color: #5c97bc
+    color: #FB5735
   }
   & > a:hover{
     color: red;
@@ -55,7 +55,7 @@ const ProjectTitle = styled.p`
   font-size: 16px;
   // font-weight: 500;
   & > a{
-    color: #5c97bc
+    color: #FB5735
   }
   & > a:hover{
     color: #363760;

@@ -4,7 +4,7 @@ const ClosedProposalTitle = styled.h3`
   font-size: 2.4rem;
   font-family: var(--bold);
   line-height: 1.42rem;
-  color: #5c97bc;
+  color: #FB5735;
   margin-bottom: 1rem;
 `
 

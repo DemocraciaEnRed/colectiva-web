@@ -9,11 +9,11 @@ const StyledLinkButton = styled.button`
   text-transform: uppercase;
   font-size: 1.4rem;
   color: ${(props) => props.active ? '#FFF' : '#4a5d68'};
-  background-color: ${(props) => props.active ? '#5c97bc' : 'white'};
+  background-color: ${(props) => props.active ? '#FB5735' : 'white'};
   font-family: ${(props) => props.active ? 'var(--bold)' : 'var(--regular)'};
   &:hover{
     cursor: pointer;
-    background-color: #5c97bc;
+    background-color: #FB5735;
     color: #FFF;
     font-family: var(--bold);
   }

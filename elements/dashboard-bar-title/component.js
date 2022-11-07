@@ -6,7 +6,7 @@ const StyledBarTitle = styled.h4`
   font-size: 2.2rem;
   font-family: var(--bold);
   line-height: 1.14rem;
-  color: #5c97bc;
+  color: #FB5735;
   margin-bottom: 3rem;
 `
 

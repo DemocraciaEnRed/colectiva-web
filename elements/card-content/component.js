@@ -1,64 +1,71 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import UserAvatar from '../user-avatar/component'
+import ProgressBar from '../progress-bar/component'
 
 const Wrapper = styled.div`
-  width: ${(props) => props.hasImage ? '100%' : '90%'};
-  margin-top: ${(props) => props.hasImage ? '0px' : '-70px'};
-  background-color:#fff;
+  margin: auto;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   height:autos;
-  padding:12px;
   box-sizing: border-box;
 `
-const TagTitle = styled.div`
-font-size:1.2rem;
-text-transform:uppercase;
-text-align:left;
-color:#5c97bc;
-padding-bottom:1rem;
+const Tags = styled.div`
+  width:90%;
+  margin: auto
+  margin-bottom:0;
+  padding:20px 0 0 0
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
 `
 
-const Title = styled.div`
-  font-size:2.4rem;
-  color:#000;
-  text-align:left;
-  font-family: var(--bold);
-  padding-bottom:2rem;
+const ProjectTag = styled.div`
+margin-bottom: 5px;
+margin-right: 5px;
+background:#B6D5F2;
+color: #4C4C4E;
+border-radius:5px;
+font-weight: 600;
+font-family: var(--italic);
+padding:8px;
+font-size:12px
+line-height: 15px;
+text-align: center;
+letter-spacing: 1.1px;
+text-transform: capitalize;
+
 `
 
-const TextWrapper = styled.div`
-`
+const CardContent = ({ closingDate, closed, creationDate, tags, tagList, project }) => {
+  let tagsCards = []
+  if (tags && tags.length > 0) {
+    tagsCards = tags.map((tag) => {
+      const tagValue = tagList.find((tagOfList) => tagOfList.value === tag)
 
-const croppedTitle = (title) => title.slice(0, 42).concat('...')
-
-const CardContent = ({ hasImage, authorId, tagTitle, title, userId, name, party }) => (
-  <Wrapper hasImage={hasImage}>
-    <TextWrapper>
-      { tagTitle &&
-        <TagTitle>{tagTitle}</TagTitle>
-      }
-      <Title>{title} </Title>
-    </TextWrapper>
-    <UserAvatar
-      userId={userId}
-      name={name}
-      party={party}
-      authorId={authorId} />
-  </Wrapper>
-)
+      return tagValue.label
+    })
+  }
+  return (
+    <Wrapper>
+      {tagsCards.length > 0 && <Tags>
+        {tagsCards.map((tag, i) => (
+          <ProjectTag key={i}> {tag} </ProjectTag>
+        ))}
+      </Tags>}
+      <ProgressBar closingDate={closingDate} creationDate={creationDate} closed={closed} />
+    </Wrapper>
+  )
+}
 
 CardContent.propTypes = {
-  hasImage: PropTypes.bool,
-  title: PropTypes.string.isRequired,
-  tagTitle: PropTypes.string,
-  userId: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  party: PropTypes.string.isRequired,
-  authorId: PropTypes.string.isRequired
+  project: PropTypes.object,
+  closingDate: PropTypes.string,
+  closed: PropTypes.bool,
+  tags: PropTypes.array,
+  tagList: PropTypes.array,
+  creationDate: PropTypes.string
 }
 
 export default CardContent

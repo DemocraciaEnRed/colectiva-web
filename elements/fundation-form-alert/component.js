@@ -27,7 +27,7 @@ const FundationFormAlert = styled.div`
     margin-left: ${(props) => props.articles && '1.5rem'};
   }
   > p > a {
-    color: #5c97bc;
+    color: #FB5735;
   }
 `
 

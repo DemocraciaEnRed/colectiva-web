@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const StyledProfileMail = styled.div`
   font-size: 1.4rem;
-  color: #5c97bc;
-  color:#5c97bc;
+  color: #FB5735;
+  color:#FB5735;
   margin:0.5rem 0rem;
   padding: 0 1em;
   text-align:center;

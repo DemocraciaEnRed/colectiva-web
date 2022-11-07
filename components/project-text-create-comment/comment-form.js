@@ -60,7 +60,7 @@ const CommentFormHeader = styled.div`
   padding: 5px
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background-color: #5c97bc;
+  background-color: #FB5735;
   font-size:1.3em;
   color: #fff;
   display:flex;
@@ -74,7 +74,7 @@ const CommentFormFooter = styled.button`
   height: 5.5rem;
   border:none;
   font-size: 1.4rem;
-  color: #5c97bc;
+  color: #FB5735;
   border-top: 1px solid #dae1e7;
   display:flex;
   align-items:center;

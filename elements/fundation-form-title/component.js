@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const FundationFormTitle = styled.h3`
   font-size: 1.6rem;
   font-family: var(--medium);
-  color: #5c97bc;
+  color: #FB5735;
   margin-bottom: 17px;
 `
 

@@ -27,7 +27,7 @@ const Label = styled.span`
 const Version = styled.span`
   font-size: 1.0rem;
   font-weight: 500;
-  color: #5c97bc;
+  color: #FB5735;
   font-family: var(--bold);
   text-transform: uppercase;
   position: absolute;

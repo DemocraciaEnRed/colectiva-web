@@ -19,7 +19,6 @@ const StyledText = styled.div`
   a {
     text-decoration:none;
     font-size:1.6rem;
-    color:#fff;
   }
 `
 

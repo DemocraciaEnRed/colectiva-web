@@ -26,7 +26,7 @@ const ChipDiv = styled.div`
   cursor: pointer
 
   &.selected {
-    background-color: #5c97bc;
+    background-color: #FB5735;
     color: white;
   }
 `

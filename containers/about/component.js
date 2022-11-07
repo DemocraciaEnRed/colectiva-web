@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import AboutImg from '../../elements/about-img/component'
-import AboutText from '../../elements/about-text/component'
-import AboutH2 from '../../elements/about-h2/component'
-import AboutP from '../../elements/about-p/component'
-import ArrowRightLink from '../../elements/arrow-right-link/component'
+
+import AboutImg from './components/img'
+import AboutText from './components/text'
+import AboutH2 from './components/h2'
+import AboutP from './components/p'
+import ArrowRightLink from './components/arrow-right-link'
 
 const StyledAbout = styled.div`
   height:540px;
@@ -16,7 +16,7 @@ const StyledAbout = styled.div`
   margin-left:auto;
   margin-right:auto;
   display:flex;
-  background-color: #5c97bc;
+  background-color: #FDCFCC;
   box-sizing: border-box;
   }
 `
@@ -26,7 +26,7 @@ const About = () => (
     <AboutImg img={'/static/assets/diputados-asset.jpg'} imgMobile='/static/assets/diputados-asset-mobile.jpg' />
     <AboutText>
       <AboutH2>Acerca de</AboutH2>
-      <AboutP>¿Qué es? El <strong>Portal de Colectiva</strong> es una plataforma de elaboración colaborativa de normas, donde las y los diputados abren a debate sus iniciativas para incorporar puntos de vista ciudadanos.</AboutP>
+      <AboutP>El <strong>Portal de Colectiva</strong> es una plataforma de elaboración colaborativa de normas, donde las y los diputados abren a debate sus iniciativas para incorporar puntos de vista ciudadanos.</AboutP>
       <ArrowRightLink />
     </AboutText>
   </StyledAbout>

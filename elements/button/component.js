@@ -8,15 +8,15 @@ const StyledButton = styled.button`
   height: 39px;
   background-color: var(--white);
   font-size: 1.4rem;
-  color: #5c97bc;
+  color: #FB5735;
   border-style: none;
   cursor: pointer;
   padding: 0 2rem;
   font-family: var(--bold);
 /* primary = blue background, secondary = white background */
-  background-color: ${(props) => props.primary ? '#5c97bc' : 'var(--white)'};
+  background-color: ${(props) => props.primary ? '#FB5735' : 'var(--white)'};
   color: ${(props) => props.primary ? 'var(--white)' : '#2c4c61'};
-  border: ${(props) => props.withBorder ? 'solid 2px #5c97bc' : 'none'};
+  border: ${(props) => props.withBorder ? 'solid 2px #FB5735' : 'none'};
   align-self: ${(props) => props.center ? 'center' : 'auto'};
 `
 

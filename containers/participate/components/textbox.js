@@ -11,7 +11,7 @@ const ParticipateTextbox = styled.div`
   box-sizing: border-box;
 `
 const Span = styled.span`
-  color:#5c97bc;
+  color:#FB5735;
   font-family:var(--bold);
   font-size:3rem;
   padding-right:1rem;

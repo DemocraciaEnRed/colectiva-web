@@ -4,11 +4,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import WithUserContext from '../../components/with-user-context/component'
 import Button from '../../elements/button/component'
-import ParticipateTitle from '../../elements/participate-title/component'
-import ParticipateTextbox from '../../elements/participate-textbox/component'
-import ParticipateP from '../../elements/participate-p/component'
-import ParticipateContainer from '../../components/participate-container/component'
-import ParticipateItem from '../../components/participate-item/component'
+import ParticipateContainer from './components/container'
+import ParticipateItem from './components/item'
+
+import ParticipateTitle from './components/title'
+import ParticipateTextbox from './components/textbox'
+import ParticipateP from './components/p'
 
 const StyledParticipateSection = styled.section`
   margin-left:auto;
@@ -28,20 +29,20 @@ const Participate = (props) => {
       <ParticipateTitle>¿Cómo participar?</ParticipateTitle>
       <ParticipateContainer>
         <ParticipateItem>
-          <ParticipateTextbox number={'1'} action={'Infórmese'} />
-          <ParticipateP text={'Ingrese y lea las propuestas y proyectos de ley abiertos a la co-creación.'} />
+          <ParticipateTextbox number={'1'} action={'Informate'} />
+          <ParticipateP text={'Ingresá y leé las propuestas.'} />
         </ParticipateItem>
         <ParticipateItem>
-          <ParticipateTextbox number={'2'} action={'Participe'} />
-          <ParticipateP text={'Comente, proponga aportes sobre los textos y apoye las propuestas.'} />
+          <ParticipateTextbox number={'2'} action={'Participá'} />
+          <ParticipateP text={'Comentá, proponé aportes sobre los textos y apoyá las propuestas.'} />
         </ParticipateItem>
         <ParticipateItem>
-          <ParticipateTextbox number={'3'} action={'Involúcrese'} />
-          <ParticipateP text={'Comparta para que más ciudadanos se involucren y siga la evolución de las propuestas.'} />
+          <ParticipateTextbox number={'3'} action={'Involucrate'} />
+          <ParticipateP text={'Compartí las propuestas para que más ciudadanos las conozcan y se involucren.'} />
         </ParticipateItem>
       </ParticipateContainer>
       <Link href='/info?section=como-participar'>
-        <Button primary>Conozca más</Button>
+        <Button primary>Conocé más</Button>
       </Link>
     </StyledParticipateSection>
   )

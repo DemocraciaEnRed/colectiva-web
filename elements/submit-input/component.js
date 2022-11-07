@@ -4,7 +4,7 @@ const SubmitInput = styled.input`
   min-width: 125px;
   max-width: 230px;
   height: 39px;
-  background-color: #5c97bc;
+  background-color: #FB5735;
   font-size: 1.4rem;
   color: var(--white);
   border-style: none;

@@ -7,7 +7,7 @@ const CircularBarTitle = styled.div`
   height: 15px;
   font-size: 1.2rem;
   text-align: center;
-  color: #5c97bc;
+  color: #FB5735;
   padding-left:0.7rem;
 `
 export default CircularBarTitle

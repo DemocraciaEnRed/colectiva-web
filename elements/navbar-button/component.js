@@ -5,13 +5,13 @@ const NavbarStyledButton = styled.button`
   max-width: 130px;
   height: 22px;
   font-size: ${(props) => props.bigger ? '1.6rem' : '1.4rem'};
-  color: #5c97bc;
+  color: #FB5735;
   border-style: none;
   padding-left:1.5rem;
   padding-bottom:2rem;
   cursor: pointer;
   background:#fff;
-  color: ${(props) => props.primary ? '#5c97bc' : '#4a5d68'};
+  color: ${(props) => props.primary ? '#FB5735' : '#4a5d68'};
 
 `
 

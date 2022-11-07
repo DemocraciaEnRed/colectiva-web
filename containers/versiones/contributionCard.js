@@ -51,7 +51,7 @@ const Username = styled.div`
 
 const Charge = styled.div`
   font-size:1.2rem;
-  color:  #5c97bc;
+  color:  #FB5735;
   text-transform:uppercase;
 `
 
@@ -62,7 +62,7 @@ const TextWrapper = styled.div`
 
 const StyledLikeWrapper = styled.span`
   padding-top: 15px;
-  color: ${({ liked }) => liked ? '#1fcc1b' : '#5c97bc'};
+  color: ${({ liked }) => liked ? '#1fcc1b' : '#FB5735'};
   &:hover{
     color: #ef885d;
     cursor: pointer;
@@ -80,7 +80,7 @@ const ChargeWrapper = styled.div`
 
 const IconWrapper = styled.div`
   padding-right:.5rem;
-  color: #5c97bc;
+  color: #FB5735;
 `
 class ContributionCard extends Component {
   state = {

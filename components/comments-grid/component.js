@@ -27,7 +27,7 @@ const CloseGrid = styled.div`
   text-align: right
   &:hover{
     cursor: pointer;
-    color: #5c97bc;
+    color: #FB5735;
   }
   position: sticky;
   top: 0;

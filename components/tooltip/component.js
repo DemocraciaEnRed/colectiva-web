@@ -14,7 +14,7 @@ const StyledTooltip = styled.div`
   padding: 2rem;
   border-radius: 3px;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
-  background-color: #5c97bc;
+  background-color: #FB5735;
   font-size: 1.6rem;
   line-height: 1.6rem;
   color: var(--white);
@@ -34,7 +34,7 @@ const StyledTooltip = styled.div`
     display: block;
     position: absolute;
     border-bottom: 5px solid;
-    border-bottom-color: #5c97bc;
+    border-bottom-color: #FB5735;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     top: -5px;

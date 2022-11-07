@@ -29,13 +29,13 @@ const TagsNotificationCheckboxDiv = styled.div`
 `
 
 const ButtonLink = styled.button`
-  background-color: #5c97bc;
+  background-color: #FB5735;
   font-size: 1.2rem;
   border-style: none;
   color: var(--white);
   font-family: var(--bold);
   padding: 0.7em 1.8em;
-  background-color: #5c97bc;
+  background-color: #FB5735;
   font-size: 1.4rem;
   margin: 1em 0 0;
 `

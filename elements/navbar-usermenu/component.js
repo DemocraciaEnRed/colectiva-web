@@ -29,7 +29,7 @@ font-family:var(--bold);
 `
 const Party = styled.div`
 font-size:1.2rem;
-color: #5c97bc;
+color: #FB5735;
 text-transform:uppercase;
 display:flex;
 margin-top:0px;
@@ -61,7 +61,7 @@ const Arrow = styled.i`
 `
 const IconWrapper = styled.div`
   padding-left:.5rem;
-  color: #5c97bc;
+  color: #FB5735;
   `
 
 const UserAvatar = ({ userId, name, party, badge, updatedAt }) => (

@@ -6,7 +6,7 @@ const StyledSubtitle = styled.h2`
   font-size: 2.4rem;
   font-family: var(--bold);
   line-height: 1.42rem;
-  color: ${(props) => props.closed ? '#ef885d' : '#5c97bc'};
+  color: ${(props) => props.closed ? '#ef885d' : '#FB5735'};
   margin-top: 4.7rem;
 `
 

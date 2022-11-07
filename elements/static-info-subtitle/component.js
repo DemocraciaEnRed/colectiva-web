@@ -6,7 +6,7 @@ const StaticInfoSubtitle = styled.h1`
   color: #454246;
   margin-bottom: 20px;
   > span {
-    color: #5c97bc;
+    color: #FB5735;
     margin-right: 20px;
   }
 `

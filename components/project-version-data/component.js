@@ -14,7 +14,7 @@ const StyledProjectVersionData = styled.div`
 const MoreLink = styled.div`
   font-size: 1.2rem;
   margin-top: 5px;
-  color: #5c97bc;
+  color: #FB5735;
   text-transform: uppercase;
 }
 `
