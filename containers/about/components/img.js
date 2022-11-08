@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledImg = styled.div`
-  height: 540px;
+  height: 600px;
   width: 500px;
   background-color: #FB5735;
   background-image:  url('${(props) => props.img}');

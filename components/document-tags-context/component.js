@@ -10,7 +10,6 @@ const DocumentTagsContext = React.createContext({
           'Content-Type': 'application/json'
         }
       })).json()
-      console.log('fetchEtiquetas ok, count:', results.results.length)
       return results.results
     } catch (err) {
       console.error('fetchEtiquetas error:', err)

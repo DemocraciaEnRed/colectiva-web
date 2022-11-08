@@ -29,16 +29,16 @@ const Participate = (props) => {
       <ParticipateTitle>¿Cómo participar?</ParticipateTitle>
       <ParticipateContainer>
         <ParticipateItem>
-          <ParticipateTextbox number={'1'} action={'Informate'} />
-          <ParticipateP text={'Ingresá y leé las propuestas.'} />
+          <ParticipateTextbox number={'1'} action={'Co-construye'} />
+          <ParticipateP text={'Co-construye sobre las iniciativas activas, participa apoyando y comentando las iniciativas.'} />
         </ParticipateItem>
         <ParticipateItem>
-          <ParticipateTextbox number={'2'} action={'Participá'} />
-          <ParticipateP text={'Comentá, proponé aportes sobre los textos y apoyá las propuestas.'} />
+          <ParticipateTextbox number={'2'} action={'Conecta'} />
+          <ParticipateP text={'¿Perteneces a una organización de la sociedad civil o movimiento social? Agendemos una llamada para activar tu propuesta en COLECTIVA.'} />
         </ParticipateItem>
         <ParticipateItem>
-          <ParticipateTextbox number={'3'} action={'Involucrate'} />
-          <ParticipateP text={'Compartí las propuestas para que más ciudadanos las conozcan y se involucren.'} />
+          <ParticipateTextbox number={'3'} action={'Involúcrese'} />
+          <ParticipateP text={'Dinos que temas o problemáticas crees que se deban abordar en el Congreso. Buscaremos conectar estos temas con Senadoras y Re'} />
         </ParticipateItem>
       </ParticipateContainer>
       <Link href='/info?section=como-participar'>

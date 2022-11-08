@@ -6,7 +6,7 @@ const ParticipateTitle = styled.h3`
   padding-left:5%;
   color: #2c4c61;
   font-family:var(--bold);
-  margin-bottom: 4rem;
+  margin-bottom: 7.2rem;
   text-transform: uppercase;
   color: #2857E6;
 `

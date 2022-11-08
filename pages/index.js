@@ -6,7 +6,7 @@ import Hero from '../containers/hero/component'
 import Participate from '../containers/participate'
 
 import Projects from '../containers/projects/component'
-// import WhatIsIt from '../containers/what-is-it/component'
+import WhatIsIt from '../containers/what-is-it'
 import About from '../containers/about/component'
 import SecondaryFooter from '../containers/secondary-footer/component'
 import Footer from '../containers/footer/component'
@@ -16,7 +16,7 @@ export default () => (
     <NavBar />
     <SecondaryNavbar/>
     <Hero />
-    {/* <WhatIsIt /> */}
+    <WhatIsIt />
     <Participate />
     <Projects />
     <About />

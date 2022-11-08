@@ -357,10 +357,10 @@ class Projects extends Component {
     } = this.state
     return (
       <Section id='projects' noMargin>
-        <TitleH2>Propuestas de ley</TitleH2>
-        <SubtitleH3>Acá podés acceder a las propuestas de ley para leerlas, apoyarlas y hacer tus aportes. ¡Ayudanos a mejorarlas!</SubtitleH3>
+        <TitleH2>Iniciativas activas</TitleH2>
+        <SubtitleH3>Vamos a deliberar y co construir sobre las propuestas de ley de Senadoras y Congresistas</SubtitleH3>
         <Options>
-          <Search type='text' placeholder='Buscá por nombre de la Diputada o Diputado o propuesta' onInput={(e) => this.toggleSort('textFilter', e.target.value)} />
+          <Search type='text' placeholder='Buscá por nombre de la propuesta' onInput={(e) => this.toggleSort('textFilter', e.target.value)} />
           <OptionsWrapper>
             <FilterButton onClick={this.handleShowFilters}>Filtrar <Icon icon='down-arrow.svg' /></FilterButton>
             <Filters style={{ display: this.state.filterShow ? 'block' : 'none' }}>

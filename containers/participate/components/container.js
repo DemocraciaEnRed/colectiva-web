@@ -8,7 +8,7 @@ const StyledParticipateContainer = styled.div`
   align-items: flex-start;
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 4.8rem;
+  margin-bottom: 10rem;
   @media (max-width: 1024px) {
     flex-direction: column;
   }

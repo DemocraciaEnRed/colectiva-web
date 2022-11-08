@@ -9,6 +9,7 @@ const AboutH2 = styled.h2`
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
+  margin-bottom: 2rem;
   }
 `
 

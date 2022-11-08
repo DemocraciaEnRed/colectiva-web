@@ -5,11 +5,12 @@ import PropTypes from 'prop-types'
 const ParticipateP = styled.p`
   width: 270px;
   height: 189px;
-  font-size: 1.8rem;
+  font-family:var(--alter-regular);
+  font-size: 1.6rem;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.56;
+  line-height: 1.2;
   letter-spacing: normal;
   color: #4a5d68;
 `

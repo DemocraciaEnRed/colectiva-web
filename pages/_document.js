@@ -16,54 +16,59 @@ const { publicRuntimeConfig: {
 
 injectGlobal`
   @font-face {
-    font-family: Roboto-Black;
-    src: url('/static/fonts/Roboto/Roboto-Black.ttf');
+    font-family: Okta-Neue-Black;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-Black.otf');
   }
 
   @font-face {
-    font-family: Roboto-BlackItalic;
-    src: url('/static/fonts/Roboto/Roboto-BlackItalic.ttf');
+    font-family: Okta-Neue-BlackItalic;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-BlackItalic.otf');
   }
 
   @font-face {
-    font-family: Roboto-Bold;
-    src: url('/static/fonts/Roboto/Roboto-Bold.ttf');
+    font-family: Okta-Neue-Bold;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-Bold.otf');
   }
 
   @font-face {
-    font-family: Roboto-BoldItalic;
-    src: url('/static/fonts/Roboto/Roboto-BoldItalic.ttf');
+    font-family: Okta-Neue-BoldItalic;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-BoldItalic.otf');
   }
 
   @font-face {
-    font-family: Roboto-Italic;
-    src: url('/static/fonts/Roboto/Roboto-Italic.ttf');
+    font-family: Okta-Neue-Italic;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-Italic.otf');
   }
 
   @font-face {
-    font-family: Roboto-Medium;
-    src: url('/static/fonts/Roboto/Roboto-Medium.ttf');
+    font-family: Okta-Neue-Medium;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-Medium.otf');
   }
 
   @font-face {
-    font-family: Roboto-MediumItalic;
-    src: url('/static/fonts/Roboto/Roboto-MediumItalic.ttf');
+    font-family: Okta-Neue-MediumItalic;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-MediumItalic.otf');
   }
 
   @font-face {
-    font-family: Roboto-Regular;
-    src: url('/static/fonts/Roboto/Roboto-Regular.ttf');
+    font-family: Okta-Neue-Regular;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-Regular.otf');
   }
 
   @font-face {
-    font-family: Roboto-light;
-    src: url('/static/fonts/Roboto/Roboto-Light.ttf')
+    font-family: Okta-Neue-Light;
+    src: url('/static/fonts/Okta-Neue/Okta-Neue-Light.otf')
   }
 
   @font-face {
-    font-family: Roboto-lightItalic;
-    src: url('/static/fonts/Roboto/Roboto-LightItalic.ttf')
+    font-family: Courier-Regular;
+    src: url('/static/fonts/Courier/Courier-Regular.ttf')
   }
+
+  @font-face {
+    font-family: Courier-Bold;
+    src: url('/static/fonts/Courier/Courier-Bold.ttf')
+  }  
 
   :root {
     /* Colors */
@@ -76,16 +81,18 @@ injectGlobal`
     --warning: #E86062;
 
     /* Fonts */
-    --regular: 'Roboto-Regular';
-    --black: 'Roboto-Black';
-    --black-italic: 'Roboto-BlackItalic';
-    --bold: 'Roboto-Bold';
-    --bold-italic: 'Roboto-BoldItalic';
-    --italic: 'Roboto-Italic';
-    --medium: 'Roboto-Medium';
-    --medium-italic: 'Roboto-MediumItalic';
-    --light: Roboto-light
-    --light-Italic: Roboto-lightItalic
+    --regular: 'Okta-Neue-Regular';
+    --alter-regular: 'Courier-Regular';
+    --black: 'Okta-Neue-Black';
+    --black-italic: 'Okta-Neue-BlackItalic';
+    --bold: 'Okta-Neue-Bold';
+    --alter-bold: 'Courier-Bold';
+    --bold-italic: 'Okta-Neue-BoldItalic';
+    --italic: 'Okta-Neue-Italic';
+    --medium: 'Okta-Neue-Medium';
+    --medium-italic: 'Okta-Neue-MediumItalic';
+    --light: Okta-Neue-Light
+    --light-Italic: Okta-Neue-LightItalic
 
     /*background sizes */
     --lined: calc(width/22);
@@ -100,7 +107,7 @@ injectGlobal`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--regular), 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--regular), 'Okta-Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: var(--black);
   }
   
@@ -110,7 +117,7 @@ injectGlobal`
     width: 100%;
     background-color: var(--white);
     color: var(--black);
-    font-family: var(--regular), 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: var(--regular), 'Okta-Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   a {
