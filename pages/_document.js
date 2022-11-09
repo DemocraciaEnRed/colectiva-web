@@ -158,11 +158,11 @@ export default class MyDocument extends Document {
           {this.props.styleTags}
           {
             NODE_ENV === 'production' &&
-            <script async src='https://www.googletagmanager.com/gtag/js?id=UA-109170776-3' />
+            <script async src='https://www.googletagmanager.com/gtag/js?id=G-LX2P3W8N85' />
           }
           {
             NODE_ENV === 'production' &&
-            <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-109170776-3');` }} />
+            <script dangerouslySetInnerHTML={{ __html: `  window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-LX2P3W8N85');` }} />
           }
           <link rel='apple-touch-icon' sizes='180x180' href='/static/apple-touch-icon.png' />
           <link rel='icon' type='image/png' sizes='32x32' href='/static/favicon-32x32.png' />
