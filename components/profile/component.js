@@ -45,12 +45,41 @@ const InputErrorSpan = styled.span`
   font-size: 1.2rem;
 `
 
-const genderOptions = [
+const departmentList = [
   { 'name': '', 'value': '' },
-  { 'name': 'Masculino', 'value': 'Masculino' },
-  { 'name': 'Femenino', 'value': 'Femenino' },
-  { 'name': 'Otro', 'value': 'Otro' },
-  { 'name': 'Prefiero no especificar', 'value': 'Prefiero no especificar' }
+  { 'name': 'Amazonas', 'value': 'Amazonas' },
+  { 'name': 'Antioquia', 'value': 'Antioquia' },
+  { 'name': 'Arauca', 'value': 'Arauca' },
+  { 'name': 'Atlántico', 'value': 'Atlántico' },
+  { 'name': 'Bolívar', 'value': 'Bolívar' },
+  { 'name': 'Boyacá', 'value': 'Boyacá' },
+  { 'name': 'Caldas', 'value': 'Caldas' },
+  { 'name': 'Caquetá', 'value': 'Caquetá' },
+  { 'name': 'Casanare', 'value': 'Casanare' },
+  { 'name': 'Cauca', 'value': 'Cauca' },
+  { 'name': 'Cesar', 'value': 'Cesar' },
+  { 'name': 'Chocó', 'value': 'Chocó' },
+  { 'name': 'Córdoba', 'value': 'Córdoba' },
+  { 'name': 'Cundinamarca', 'value': 'Cundinamarca' },
+  { 'name': 'Guainía', 'value': 'Guainía' },
+  { 'name': 'Guaviare', 'value': 'Guaviare' },
+  { 'name': 'Huila', 'value': 'Huila' },
+  { 'name': 'La Guajira', 'value': 'La Guajira' },
+  { 'name': 'Magdalena', 'value': 'Magdalena' },
+  { 'name': 'Meta', 'value': 'Meta' },
+  { 'name': 'Nariño', 'value': 'Nariño' },
+  { 'name': 'Norte de Santander', 'value': 'Norte de Santander' },
+  { 'name': 'Putumayo', 'value': 'Putumayo' },
+  { 'name': 'Quindío', 'value': 'Quindío' },
+  { 'name': 'Risaralda', 'value': 'Risaralda' },
+  { 'name': 'San Andrés y Providencia', 'value': 'San Andrés y Providencia' },
+  { 'name': 'Santander', 'value': 'Santander' },
+  { 'name': 'Sucre', 'value': 'Sucre' },
+  { 'name': 'Tolima', 'value': 'Tolima' },
+  { 'name': 'Valle del Cauca', 'value': 'Valle del Cauca' },
+  { 'name': 'Vaupés', 'value': 'Vaupés' },
+  { 'name': 'Vichad', 'value': 'Vichad' },
+  { 'name': '(No soy de Colombia)', 'value': '(No soy de Colombia)' },
 ]
 
 class Profile extends Component {
@@ -62,11 +91,9 @@ class Profile extends Component {
 
   state = {
     avatar: null,
-    occupation: '',
-    gender: '',
-    party: '',
     birthday: '',
-    province: '',
+    whatsapp: '',
+    department: '',
     editMode: false,
     files: [],
     allTags: [],
@@ -82,11 +109,9 @@ class Profile extends Component {
   componentDidMount () {
     const { user } = this.props
     this.setState({
-      occupation: user.fields && user.fields.occupation ? user.fields.occupation : '',
-      gender: user.fields && user.fields.gender ? user.fields.gender : '',
-      party: user.fields && user.fields.party ? user.fields.party : '',
+      whatsapp: user.fields && user.fields.whatsapp ? user.fields.whatsapp : '',
+      department: user.fields && user.fields.department ? user.fields.department : '',
       birthday: user.fields && user.fields.birthday ? user.fields.birthday : '',
-      province: user.fields && user.fields.province ? user.fields.province : '',
       tags: user.fields && user.fields.tags ? user.fields.tags : [],
       tagsNotification: user.fields && user.fields.tagsNotification ? user.fields.tagsNotification : ''
     })
@@ -110,11 +135,9 @@ class Profile extends Component {
 
     this.setState({
       editMode: !this.state.editMode,
-      occupation: user.fields && user.fields.occupation ? user.fields.occupation : '',
-      gender: user.fields && user.fields.gender ? user.fields.gender : '',
-      party: user.fields && user.fields.party ? user.fields.party : '',
+      whatsapp: user.fields && user.fields.whatsapp ? user.fields.whatsapp : '',
+      department: user.fields && user.fields.department ? user.fields.department : '',
       birthday: user.fields && user.fields.birthday ? user.fields.birthday : '',
-      province: user.fields && user.fields.province ? user.fields.province : '',
       tags: user.fields && user.fields.tags ? user.fields.tags : [],
       tagsMaxReached: false,
       tagsNotification: user.fields && user.fields.tagsNotification ? user.fields.tagsNotification : ''
@@ -149,11 +172,9 @@ class Profile extends Component {
     e.preventDefault()
     const newData = {
       fields: {
-        occupation: this.state.occupation || '',
-        gender: this.state.gender || '',
+        whatsapp: this.state.whatsapp || '',
         birthday: this.state.birthday || '',
-        province: this.state.province || '',
-        party: this.state.party || '',
+        department: this.state.department || '',
         tags: this.state.tags || '',
         tagsNotification: this.state.tagsNotification || ''
       }
@@ -206,24 +227,24 @@ class Profile extends Component {
                   disabled={!isOwner}
                   placeholder='30/02/1900' />
               </ProfileLabel>
-              <ProfileLabel htmlFor='gender'>
-          Género
+              <ProfileLabel htmlFor='department'>
+          Departamento
                 {isOwner
-                  ? <ProfileSelect name='gender' value={this.state.gender} options={genderOptions} onChange={this.handleChange} />
-                  : <ProfileInput type='text' name='gender' value={this.state.gender} readOnly disabled />
+                  ? <ProfileSelect name='department' value={this.state.department} options={departmentList} onChange={this.handleChange} />
+                  : <ProfileInput type='text' name='department' value={this.state.department} readOnly disabled />
                 }
               </ProfileLabel>
-              <ProfileLabel htmlFor='province'>
-          Provincia / Localidad
+              <ProfileLabel htmlFor='whatsapp'>
+          Telefono de Whatsapp
                 <ProfileInput
                   type='text'
-                  name='province'
-                  value={this.state.province}
+                  name='whatsapp'
+                  value={this.state.whatsapp}
                   readOnly={!isOwner}
                   disabled={!isOwner}
                   onChange={this.handleChange} />
               </ProfileLabel>
-              <ProfileLabel htmlFor='occupation'>
+              {/* <ProfileLabel htmlFor='occupation'>
           Ocupación
                 <ProfileInput
                   type='text'
@@ -245,20 +266,20 @@ class Profile extends Component {
                     onChange={this.handleChange} />
                 </ProfileLabel>
                 : null
-              }
+              } */}
               <ProfileLabel htmlFor='tags'>
           Etiquetas de interés
-            <TagsNotificationCheckboxDiv>
-              <input
-                type="checkbox"
-                name='tagsNotification'
-                checked={this.state.tagsNotification}
-                onChange={this.toggleTagsCheckboxChange} />
-              Deseo recibir notificaciones de futuros proyectos asociados a mis etiquetas de interés
-            </TagsNotificationCheckboxDiv>
-          {this.state.tagsMaxReached &&
-            <InputErrorSpan>Se pueden elegir hasta 6 etiquetas de interés</InputErrorSpan>
-          }
+                <TagsNotificationCheckboxDiv>
+                  <input
+                    type="checkbox"
+                    name='tagsNotification'
+                    checked={this.state.tagsNotification}
+                    onChange={this.toggleTagsCheckboxChange} />
+                Deseo recibir notificaciones de futuros proyectos asociados a mis etiquetas de interés
+                </TagsNotificationCheckboxDiv>
+                {this.state.tagsMaxReached &&
+                  <InputErrorSpan>Se pueden elegir hasta 6 etiquetas de interés</InputErrorSpan>
+                }
                 <ProfileTags
                   name='tags'
                   allTags={this.state.allTags}

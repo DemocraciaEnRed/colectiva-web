@@ -64,7 +64,7 @@ const IconWrapper = styled.div`
   color: #FB5735;
   `
 
-const UserAvatar = ({ userId, name, party, badge, updatedAt }) => (
+const UserAvatar = ({ userId, name, department, badge, updatedAt }) => (
   <Wrapper>
     <Avatar
       userId={userId}
@@ -72,7 +72,7 @@ const UserAvatar = ({ userId, name, party, badge, updatedAt }) => (
     <TextWrapper>
       <Name>{name} </Name>
       <Party>
-        <p>{party}</p>
+        <p>{department}</p>
         { badge &&
           <IconWrapper><Icon icon={checkCircle} /></IconWrapper>
         }
@@ -86,7 +86,7 @@ const UserAvatar = ({ userId, name, party, badge, updatedAt }) => (
 UserAvatar.propTypes = {
   name: PropTypes.string.isRequired,
   userId: PropTypes.string,
-  party: PropTypes.string,
+  department: PropTypes.string,
   badge: PropTypes.bool,
   updatedAt: PropTypes.string
 }

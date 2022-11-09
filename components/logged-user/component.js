@@ -23,17 +23,10 @@ const badge = (props) => {
 }
 
 const subtituloUsuario = (props) => {
-  if (props.authContext.isAuthor) {
+  if (props.authContext.user) {
     if (props.authContext.user.fields) {
-      if (props.authContext.user.fields.party !== null || props.authContext.user.fields.party !== '') {
-        return props.authContext.user.fields.party
-      }
-    }
-    return ''
-  } else {
-    if (props.authContext.user.fields) {
-      if (props.authContext.user.fields.occupation !== null || props.authContext.user.fields.occupation !== '') {
-        return props.authContext.user.fields.occupation
+      if (props.authContext.user.fields.department !== null || props.authContext.user.fields.department !== '') {
+        return props.authContext.user.fields.department
       }
     }
     return ''
@@ -45,7 +38,7 @@ const LoggedUser = (props) => (
     <NavbarUsermenu
       name={props.authContext.user.fullname}
       userId={props.authContext.user._id}
-      party={subtituloUsuario(props)}
+      department={subtituloUsuario(props)}
       badge={badge(props)}
       updatedAt={props.authContext.user.updatedAt} />
   </StyledLoggedUser>

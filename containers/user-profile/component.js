@@ -35,10 +35,8 @@ class UserProfile extends Component {
 
   setUser = (user, isOwner) => {
     let arrayData = []
-    if (user.fields && user.fields.occupation) arrayData.push(user.fields.occupation)
-    if (user.fields && user.fields.party) arrayData.push(user.fields.party)
-    if (user.fields && user.fields.province) arrayData.push(user.fields.province)
-    if (user.fields && user.fields.gender) arrayData.push('Género: ' + user.fields.gender)
+    if (user.fields && user.fields.department) arrayData.push('Departamento: ' + user.fields.department)
+    // if (user.fields && whatsapp) arrayData.push('Whatsapp: ' + user.whatsapp)
     if (user.fields && user.fields.birthday) arrayData.push('Fecha de Nacimiento: ' + user.fields.birthday)
     // if(user.fields && user.fields.) arrayData.push(user.fields.occupation)
     // if(user.fields && user.fields.occupation) arrayData.push(user.fields.occupation)
@@ -49,11 +47,9 @@ class UserProfile extends Component {
         'names': user.names,
         'username': user.username,
         // 'avatar': user.avatar,
-        'occupation': user.fields && user.fields.occupation ? user.fields.occupation : '',
-        'gender': user.fields && user.fields.gender ? user.fields.gender : '',
-        'party': user.fields && user.fields.party ? user.fields.party : '',
+        'whatsapp': user.fields && user.fields.whatsapp ? user.fields.birthday : '',
         'birthday': user.fields && user.fields.birthday ? user.fields.birthday : '',
-        'province': user.fields && user.fields.province ? user.fields.province : '',
+        'department': user.fields && user.fields.department ? user.fields.department : '',
         'roles': user.roles,
         'fields': user.fields,
         'arrayData': arrayData,
