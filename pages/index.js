@@ -1,16 +1,16 @@
 import React from 'react'
 
-import SecondaryNavbar from '../containers/secondary-navbar/component'
+import Navbar from '../containers/navbar'
 import Hero from '../containers/hero/component'
 import Participate from '../containers/participate'
 import Projects from '../containers/projects/component'
 import WhatIsIt from '../containers/what-is-it'
 import About from '../containers/about/component'
-import SecondaryFooter from '../containers/footer/component'
+import Footer from '../containers/footer'
 
 export default () => (
   <div>
-    <SecondaryNavbar/>
+    <Navbar/>
     <Hero />
     <WhatIsIt />
     <Participate />
@@ -18,6 +18,6 @@ export default () => (
     <Projects />
     <hr />
     <About />
-    <SecondaryFooter />
+    <Footer />
   </div>
 )

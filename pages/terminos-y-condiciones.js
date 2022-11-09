@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import SecondaryNavbar from '../containers/secondary-navbar/component'
+import Navbar from '../containers/navbar'
 import TerminosYCondiciones from '../components/terminos-y-condiciones/component'
-import SecondaryFooter from '../containers/footer/component'
+import Footer from '../containers/footer'
 
 export default class extends Component {
   render () {
     return (
       <div>
-        <SecondaryNavbar />
+        <Navbar />
         <TerminosYCondiciones />
-        <SecondaryFooter />
+        <Footer />
       </div>
     )
   }

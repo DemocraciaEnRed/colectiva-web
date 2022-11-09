@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'next/router'
 
-import SecondaryNavbar from '../containers/secondary-navbar/component'
-import StaticInfo from '../components/static-info/component'
-import SecondaryFooter from '../containers/footer/component'
+import Navbar from '../containers/navbar'
+import StaticInfo from '../containers/static-info'
+import Footer from '../containers/footer'
 
 class Info extends Component {
   state = {
@@ -41,11 +41,11 @@ class Info extends Component {
   render () {
     return (
       <div>
-        <SecondaryNavbar />
+        <Navbar />
         <StaticInfo
           section={this.state.section}
           changeSection={this.changeSection} />
-        <SecondaryFooter />
+        <Footer />
       </div>
     )
   }

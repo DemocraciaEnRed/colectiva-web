@@ -10,7 +10,7 @@ justify-content:center;
 
 const Logo = styled.div`
   width: 220px;
-  height: 98px;
+  height: 50px;
   background-image:url(${'/static/assets/colectiva.png'});
   background-size: cover;
   background-position: center;  

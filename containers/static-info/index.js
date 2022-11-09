@@ -3,14 +3,16 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Icon from 'react-icons-kit'
 import { download } from 'react-icons-kit/feather/download'
+
+import ComoParticipar from '../../components/como-participar/component'
+import Contacto from '../../components/contacto/component'
+import FAQ from '../../components/faq/component'
+import SobreLaPlataforma from '../../components/sobre-la-plataforma/component'
+import SobreElSitio from '../../components/sobre-el-sitio/component'
+
 import StaticInfoWrapper from '../../elements/static-info-wrapper/component'
 import StaticInfoNav from '../../elements/static-info-nav/component'
 import StaticInfoButton from '../../elements/static-info-button/component'
-import ComoParticipar from '../como-participar/component'
-import FAQ from '../faq/component'
-import SobreLaPlataforma from '../sobre-la-plataforma/component'
-import SobreElSitio from '../sobre-el-sitio/component'
-import Contacto from '../contacto/component'
 
 const buttons = [
   {
@@ -46,9 +48,6 @@ const content = {
 const StyledStaticInfo = styled.div`
   display: flex;
   justify-content: center;
-  background-image: url('/static/assets/header-background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 `
 
 const StaticInfo = (props) => (

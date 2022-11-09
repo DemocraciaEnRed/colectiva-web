@@ -3,9 +3,9 @@ import fetch from 'isomorphic-unfetch'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import SecondaryNavbar from '../containers/secondary-navbar/component'
+import Navbar from '../containers/navbar'
 import WithUserContext from '../../components/with-user-context/component'
-import SecondaryNavbar from '../../containers/secondary-navbar/component'
+import Navbar from '../../containers/navbar'
 import UserProjectContainer from '../user-project-container/component'
 import getConfig from 'next/config'
 
@@ -98,7 +98,7 @@ class GeneralContainer extends Component {
     return (
       <Wrapper>
         <div>
-          <SecondaryNavbar />
+          <Navbar />
         </div>
         <UserProjectContainer
           project={this.state.project}
@@ -106,7 +106,7 @@ class GeneralContainer extends Component {
           fetchDocument={this.fetchDocument}
           apoyarProyecto={this.apoyarProyecto}
           />
-        <SecondaryFooter />
+        <Footer />
       </Wrapper>
     )
   }

@@ -125,14 +125,13 @@ injectGlobal`
   }
   hr { 
     width: 100%;
-    background: url('/static/assets/colores.jpg') no-repeat top center;
+    height: 10px;
+    background: url('/static/assets/colores.jpg');
     background-repeat: no-repeat;    
     background-size: 100%; //propotional resize
-    display: block;
-    border: 0;
     position: relative;
     margin-bottom: 10rem;
-}  
+  }  
 
   a {
     cursor: pointer;

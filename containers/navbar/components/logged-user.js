@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import WithUserContext from '../with-user-context/component'
-import NavbarUsermenu from '../../elements/navbar-usermenu/component'
+import WithUserContext from '../../../components/with-user-context/component'
+import NavbarUsermenu from '../../../elements/navbar-usermenu/component'
 
 const StyledLoggedUser = styled.div`
   height:35px;
