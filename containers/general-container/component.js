@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react'
 import fetch from 'isomorphic-unfetch'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import NavBar from '../navbar/component'
-import Footer from '../footer/component'
+
+import SecondaryNavbar from '../containers/secondary-navbar/component'
 import WithUserContext from '../../components/with-user-context/component'
 import SecondaryNavbar from '../../containers/secondary-navbar/component'
 import UserProjectContainer from '../user-project-container/component'
@@ -98,7 +98,6 @@ class GeneralContainer extends Component {
     return (
       <Wrapper>
         <div>
-          <NavBar />
           <SecondaryNavbar />
         </div>
         <UserProjectContainer
@@ -107,7 +106,7 @@ class GeneralContainer extends Component {
           fetchDocument={this.fetchDocument}
           apoyarProyecto={this.apoyarProyecto}
           />
-        <Footer />
+        <SecondaryFooter />
       </Wrapper>
     )
   }

@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import WithUserContext from '../../components/with-user-context/component'
-
 import WhatIsItTitle from './components/title'
+
+import WithUserContext from '../../components/with-user-context/component'
 
 const StyledWhatIsItSection = styled.section`
   margin-left:auto;

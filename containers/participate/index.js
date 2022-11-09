@@ -2,14 +2,15 @@ import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import WithUserContext from '../../components/with-user-context/component'
-import Button from '../../elements/button/component'
+
 import ParticipateContainer from './components/container'
 import ParticipateItem from './components/item'
-
 import ParticipateTitle from './components/title'
 import ParticipateTextbox from './components/textbox'
 import ParticipateP from './components/p'
+
+import WithUserContext from '../../components/with-user-context/component'
+import Button from '../../elements/button/component'
 
 const StyledParticipateSection = styled.section`
   margin-left:auto;

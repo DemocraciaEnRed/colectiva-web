@@ -1,16 +1,16 @@
 import React from 'react'
-import NavBar from '../containers/navbar/component'
+
+import SecondaryNavbar from '../containers/secondary-navbar/component'
 import DashboardBar from '../containers/dashboard-bar/component'
 import DashboardPublished from '../containers/dashboard-published/component'
 import DashboardDrafts from '../containers/dashboard-drafts/component'
-import Footer from '../containers/footer/component'
 
 export default () => (
   <div>
-    <NavBar />
+    <SecondaryNavbar/>
     <DashboardBar />
     <DashboardDrafts />
     <DashboardPublished />
-    <Footer />
+    <SecondaryFooter />
   </div>
 )

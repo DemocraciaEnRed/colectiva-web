@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import NavBar from '../containers/navbar/component'
+
 import SecondaryNavbar from '../containers/secondary-navbar/component'
 import UserProfileContainer from '../containers/user-profile/component'
 import MyProjects from '../containers/my-projects/component'
-import Footer from '../containers/footer/component'
+import SecondaryFooter from '../containers/footer/component'
 
 const Wrapper = styled.div`
   display:flex;
@@ -23,12 +23,11 @@ class UserProfile extends Component {
     return (
       <Wrapper>
         <div>
-          <NavBar />
           <SecondaryNavbar />
           <UserProfileContainer userId={this.props.id} />
           <MyProjects userId={this.props.id} />
         </div>
-        <Footer />
+        <SecondaryFooter />
       </Wrapper>
     )
   }

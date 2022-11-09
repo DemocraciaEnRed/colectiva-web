@@ -74,7 +74,7 @@ injectGlobal`
     /* Colors */
     --white: #FFFFFF;
     --black: #000000;
-    --gray: #B8B8B8;
+    --gray: #F0F0F0;
     --primary-color: #5182A0;
     --secondary-color: #A5CEE7;
     --highlight: #ED8862;
@@ -116,9 +116,23 @@ injectGlobal`
     padding:0;
     width: 100%;
     background-color: var(--white);
+    background-image: url(/static/assets/images/banner-bg.jpg);
+    background-position: top;
+    background-repeat: no-repeat;    
+    background-size: 100%; //propotional resize
     color: var(--black);
     font-family: var(--regular), 'Okta-Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
+  hr { 
+    width: 100%;
+    background: url('/static/assets/colores.jpg') no-repeat top center;
+    background-repeat: no-repeat;    
+    background-size: 100%; //propotional resize
+    display: block;
+    border: 0;
+    position: relative;
+    margin-bottom: 10rem;
+}  
 
   a {
     cursor: pointer;
