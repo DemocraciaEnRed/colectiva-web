@@ -228,7 +228,7 @@ class FundationCommentCard extends Component {
                     <Icon icon={checkCircle} />
                   </IconWrapper>
                 }
-                <Charge>{(comment.user.fields && comment.user.fields.occupation) ? comment.user.fields.occupation : ''}</Charge>
+                <Charge>{(comment.user.fields && comment.user.fields.department) ? comment.user.fields.department : ''}</Charge>
               </ChargeWrapper>
               <Comment>{comment.content}</Comment>
               <Date>{`Hace ${comment.when}`}</Date>

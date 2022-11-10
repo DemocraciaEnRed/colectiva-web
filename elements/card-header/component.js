@@ -50,7 +50,7 @@ const CardHeader = ({ project, img, published }) => (
       // hasImage={!!project.currentVersion.content.imageCover}
       closingDate={project.currentVersion.content.closingDate}
       hasImage={project.currentVersion.content.tags && project.currentVersion.content.tags.length > 0}
-      party={project.author.fields && project.author.fields.party ? project.author.fields.party : ''} />
+      party={project.author.fields && project.author.fields.department ? project.author.fields.department : ''} />
   </Wrapper>
 )
 

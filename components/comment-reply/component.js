@@ -166,7 +166,7 @@ class CommentReply extends Component {
             style={{marginBottom: '0px !important', backgroundColor: 'red'}}
             userId={project.author._id}
             name={project.author.fullname}
-            subtitle={project.author.fields && project.author.fields.party ? project.author.fields.party : ''} />
+            subtitle={project.author.fields && project.author.fields.department ? project.author.fields.department : ''} />
           {reply}</ReplyText>
         }
         { !showInput && isAuthor &&
@@ -182,7 +182,7 @@ class CommentReply extends Component {
                 style={{ marginBottom: '0px !important', backgroundColor: 'red' }}
                 userId={project.author._id}
                 name={project.author.fullname}
-                subtitle={project.author.fields && project.author.fields.party ? project.author.fields.party : ''} />
+                subtitle={project.author.fields && project.author.fields.department ? project.author.fields.department : ''} />
             </ReplyText>
             <ReplySection>
             <InputBox value={this.state.inputText} onChange={this.handleChange} placeholder={'Ingrese su respuesta'} autoFocus />

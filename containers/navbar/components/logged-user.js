@@ -15,7 +15,7 @@ const StyledLoggedUser = styled.div`
 const badge = (props) => {
   if (props.authContext.isAuthor) {
     if (props.authContext.user.fields) {
-      if (props.authContext.user.fields.party !== null || props.authContext.user.fields.party !== '') {
+      if (props.authContext.user.fields.department !== null || props.authContext.user.fields.department !== '') {
         return true
       }
     }

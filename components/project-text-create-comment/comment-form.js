@@ -157,8 +157,8 @@ class CommentForm extends Component {
   setSubtitle = (props) => {
     if (props.authContext.isAuthor) {
       if (props.authContext.user.fields) {
-        if (props.authContext.user.fields.party !== null || props.authContext.user.fields.party !== '') {
-          return props.authContext.user.fields.party
+        if (props.authContext.user.fields.department !== null || props.authContext.user.fields.department !== '') {
+          return props.authContext.user.fields.department
         }
       }
       return ''
@@ -225,7 +225,7 @@ class CommentForm extends Component {
                 userId={this.props.authContext.user._id}
                 name={this.props.authContext.profile.name}
                 subtitle={this.setSubtitle(this.props)}
-                badge={(this.props.authContext.user.fields && this.props.authContext.user.fields.party) ? this.props.authContext.user.fields.party : ''} />
+                badge={(this.props.authContext.user.fields && this.props.authContext.user.fields.department) ? this.props.authContext.user.fields.department : ''} />
               <CommentText
                 placeholder='Agregue su comentario aquí'
                 value={this.state.value}
