@@ -3,11 +3,11 @@ import fetch from 'isomorphic-unfetch'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Navbar from '../containers/navbar'
+import Navbar from '../navbar'
 import WithUserContext from '../../components/with-user-context/component'
-import Navbar from '../../containers/navbar'
 import UserProjectContainer from '../user-project-container/component'
 import getConfig from 'next/config'
+import Footer from '../footer'
 
 const { publicRuntimeConfig: { API_URL }} = getConfig()
 
