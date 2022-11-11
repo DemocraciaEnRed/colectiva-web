@@ -37,12 +37,20 @@ const Avatar = styled.div`
   }
 `
 const Name = styled.div`
-color: #6CAAE4;
 font-size: 20px;
 font-family:var(--bold);
+color: var(--blue);
 cursor: pointer;
 min-width:100px;
 `
+
+const SubName = styled.div`
+font-size: 12px;
+font-family:var(--alter-regular);
+min-width:100px;
+text-transform: uppercase;
+`
+
 const Party = styled.div`
 font-size: 12px;
 color: #7e7e7e;
@@ -76,6 +84,7 @@ const UserAvatar = ({ projectView, userId, name, party, badge }) => (
       <Link href={{ pathname: '/userprofile', query: { id: userId } }}>
         <Name>{name}</Name>
       </Link>
+      <SubName>Artemisas</SubName>
       <Party>
         {badge && <IconWrapper><Icon icon={checkCircle} /></IconWrapper>}
         <p>{party}</p>

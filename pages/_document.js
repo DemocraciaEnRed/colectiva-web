@@ -75,8 +75,9 @@ injectGlobal`
     --white: #FFFFFF;
     --black: #000000;
     --gray: #F0F0F0;
-    --primary-color: #FB5735;
-    --secondary-color: #A6B9F3;
+    --orange: #FB5735;
+    --blue: #2857E6;
+    --light-blue: #A6B9F3;
     --highlight: #ED8862;
     --warning: #E86062;
 

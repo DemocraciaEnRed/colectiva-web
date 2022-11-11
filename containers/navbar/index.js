@@ -70,16 +70,16 @@ const links = [
     hash: '#__next',
     link: '/info?section=acerca-de'
   },
-  {
-    name: 'Congreso y Senado',
-    hash: '#projects',
-    link: '/'
-  },  
-  {
-    name: 'Contactanos',
-    hash: '#projects',
-    link: '/'
-  },    
+  // {
+  //   name: 'Congreso y Senado',
+  //   hash: '#projects',
+  //   link: '/'
+  // },  
+  // {
+  //   name: 'Contactanos',
+  //   hash: '#projects',
+  //   link: '/'
+  // },    
 ]
 
 const NavbarLink = ({ name, link, hash }) => {
