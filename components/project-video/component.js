@@ -24,7 +24,7 @@ class ProjectVideo extends Component {
   render () {
     const { youtubeId } = this.props
     return (
-      <div>
+      <div style={{maxWidth: '940px'}}>
         <StyledResponsiveVideo>
           <StyledIframe width='560' height='315' src={`https://www.youtube.com/embed/${youtubeId}`} frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
         </StyledResponsiveVideo>
