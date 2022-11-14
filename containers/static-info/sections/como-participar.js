@@ -3,10 +3,10 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import Icon from 'react-icons-kit'
 import { download } from 'react-icons-kit/feather/download'
-import StaticInfoTitle from '../../elements/static-info-title/component'
-import ComoParticiparWrapper from '../../elements/como-participar-wrapper/component'
-import StaticInfoP from '../../elements/static-info-p/component'
-import StaticInfoBold from '../../elements/static-info-bold/component'
+
+import StaticInfoTitle from '../components/static-info-title'
+import StaticInfoP from '../components/static-info-p'
+import StaticInfoBold from '../components/static-info-bold'
 
 const ManualLink = styled.span`
   text-decoration: underline
@@ -14,6 +14,11 @@ const ManualLink = styled.span`
   &:hover{
     cursor: pointer;
   }
+`
+
+const ComoParticiparWrapper = styled.div`
+  max-width: 850px;
+  padding: 0px 82px 55px 0px;
 `
 
 export default () => (

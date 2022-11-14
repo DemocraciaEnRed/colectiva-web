@@ -1,18 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Icon from 'react-icons-kit'
-import { download } from 'react-icons-kit/feather/download'
 
-import ComoParticipar from '../../components/como-participar/component'
-import Contacto from '../../components/contacto/component'
-import FAQ from '../../components/faq/component'
-import SobreLaPlataforma from '../../components/sobre-la-plataforma/component'
-import SobreElSitio from '../../components/sobre-el-sitio/component'
+import SobreLaPlataforma from './sections/sobre-la-plataforma'
+import ComoParticipar from './sections/como-participar'
+import Contacto from './sections/contacto'
+import FAQ from './sections/faq'
+import SobreElSitio from './sections/sobre-el-sitio'
 
-import StaticInfoWrapper from '../../elements/static-info-wrapper/component'
-import StaticInfoNav from '../../elements/static-info-nav/component'
-import StaticInfoButton from '../../elements/static-info-button/component'
+import StaticInfoWrapper from './components/static-info-wrapper'
+import StaticInfoNav from './components/static-info-nav'
+import StaticInfoButton from './components/static-info-button'
 
 const buttons = [
   {
@@ -38,8 +36,8 @@ const buttons = [
 ]
 
 const content = {
-  'como-participar': <ComoParticipar />,
   'acerca-de': <SobreLaPlataforma />,
+  'como-participar': <ComoParticipar />,
   'faq': <FAQ />,
   'sobre-el-sitio': <SobreElSitio />,
   'contacto': <Contacto />
@@ -62,9 +60,6 @@ const StaticInfo = (props) => (
             {button.name}
           </StaticInfoButton>
         ))}
-        <StaticInfoButton onClick={() => window.open('/static/files/congreso_manual_de_usuario.pdf', '_blank')}>
-          <Icon icon={download} size={16} /> Manual de usuario
-        </StaticInfoButton>
       </StaticInfoNav>
       {content[props.section]}
       

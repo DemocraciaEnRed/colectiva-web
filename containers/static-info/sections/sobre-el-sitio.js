@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import StaticInfoTitle from '../../elements/static-info-title/component'
-import StaticInfoP from '../../elements/static-info-p/component'
+import StaticInfoTitle from '../components/static-info-title'
+import StaticInfoP from '../components/static-info-p'
 
 const StyledDiv = styled.div`
   margin-bottom: 20px;
