@@ -3,8 +3,8 @@ import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import styled from 'styled-components'
 
+// height: ${(props) => props.isAuthor ? '154px' : '104px'};
 const StyledUl = styled.ul`
-  height: ${(props) => props.isAuthor ? '154px' : '104px'};
   width: 200px;
   @media (max-width: 760px) {
     width: 150px;
@@ -14,7 +14,7 @@ const StyledUl = styled.ul`
   border: solid 1px #e9e9e9;
   background-color: #f6f6f6;
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   align-content: space-between;
   flex-wrap: wrap;
   right: 1;
@@ -54,6 +54,7 @@ const StyledUl = styled.ul`
 const Li = styled.li`
   border-bottom:1px solid #dae1e7;
   width: 100%;
+  height: 50px;
   &:last-child{
     border:none;
   }
@@ -67,9 +68,6 @@ const StyledA = styled.span`
  display:flex;
  padding-left:3rem;
  cursor: pointer;
- &:hover{
-   background:#f6f6f0;
- }
 
 `
 
