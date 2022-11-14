@@ -30,8 +30,8 @@ import ProjectMobileTools from "../project-mobile-tools/component"
 const ProjectHeaderContainer = styled.div`
   min-height: 383px;
   width:100%;
-  background-color: #395595;
-  //background-image: url('${(props) => props.img}');
+  background-color: var(--blue);
+  // background-image: url('${(props) => props.img}');
   background-size: cover;
   background-position: center;
   display: flex;
