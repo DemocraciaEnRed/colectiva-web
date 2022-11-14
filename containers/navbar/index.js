@@ -165,7 +165,7 @@ const Navbar = (props) => {
         }
         { props.authContext.authenticated && !hasTags && showTagsTooltip &&
           <Tooltip top={'110px'} right={'20px'} localStorageHideKey='hide-tagstooltips'>
-            ¡Complete su perfil con los temas que le interesan!
+            ¡Registrá en tu perfil tu celular y temas de interés para las Alertas tempranas por WhatsApp!
           </Tooltip>
         }
 
