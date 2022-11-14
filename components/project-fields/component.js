@@ -982,14 +982,14 @@ class ProjectFields extends Component {
             onChange={this.handleInputChange}
             placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
         </ProfileLabel>
-        {/* <ProfileLabel>
+        <ProfileLabel>
           Ingrese la URL para la imagen de encabezado:
           <InputField
             type='text'
             value={this.state.imageCover}
             name='imageCover'
             onChange={this.handleInputChange} />
-        </ProfileLabel> */}
+        </ProfileLabel>
         <ProfileLabel>
           Fecha de cierre del proyecto:
           {/* <InputField
@@ -1009,7 +1009,7 @@ class ProjectFields extends Component {
             : <SpanDanger>Debe definir una fecha de cierre</SpanDanger>
           }
         </ProfileLabel>
-        <ProfileLabel>
+        {/* <ProfileLabel>
           Ingrese el link del video (Reproductor oficial HCDN) (Opcional)
           <InputField
             type='text'
@@ -1019,8 +1019,8 @@ class ProjectFields extends Component {
           {!this.state.customVideoId && <SpanOk>Link invalido o vacio (El proyecto se publicará sin video)</SpanOk>
           }
           <SpanOk>NOTA: Ingrese solamente el dominio del video, sin "https://", que termina hasta ".mp4". (Ej: argos.hcdn.gob.ar/DMPARL/tutorial.mp4)</SpanOk>
-        </ProfileLabel>
-        {/* <ProfileLabel>
+        </ProfileLabel> */}
+        <ProfileLabel>
           Ingrese el link del video de Youtube (Opcional)
           <InputField
             type='text'
@@ -1029,7 +1029,7 @@ class ProjectFields extends Component {
             onChange={this.handleInputChangeYoutube} />
           {!this.state.youtubeId && <SpanOk>Link invalido o vacio (El proyecto se publicará sin video)</SpanOk>
           }
-        </ProfileLabel> */}
+        </ProfileLabel>
         <ProfileLabel>
           Palabras de cierre
           <TextareaField
