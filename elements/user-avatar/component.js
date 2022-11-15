@@ -38,6 +38,7 @@ const Avatar = styled.div`
 `
 const Name = styled.div`
 font-size: 20px;
+line-height: 26px;
 font-family:var(--bold);
 color: var(--blue);
 cursor: pointer;
@@ -52,11 +53,11 @@ text-transform: uppercase;
 `
 
 const Party = styled.div`
-font-size: 12px;
+font-size: 10px;
 color: #7e7e7e;
 text-transform:uppercase;
 display:flex;
-margin-top:.9rem;
+// margin-top:10px;
 
 align-items:center;
 `

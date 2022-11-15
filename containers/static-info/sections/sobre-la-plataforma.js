@@ -48,13 +48,10 @@ export default () => (
         <StaticInfoImg><img src="/static/assets/images/alianzas/labicpa.png" alt="Logotipo de LabIcPa" width="200px" /></StaticInfoImg>
         <StaticInfoImg><img src="/static/assets/images/alianzas/open-society.png" alt="Logotipo de Open Society Foundations" width="200px" /></StaticInfoImg>
         <StaticInfoImg><img src="/static/assets/images/alianzas/ned.png" alt="Logotipo de National endowment for democracy" width="200px" /></StaticInfoImg>
-        <StaticInfoImg><img src="/static/assets/images/alianzas/artemisas.png" alt="Logotipo de Artemisas" width="200px" /></StaticInfoImg>
-      </StaticInfoImgs>
-      <StaticInfoImgs>          
+        <StaticInfoImg><img src="/static/assets/images/alianzas/artemisas.png" alt="Logotipo de Artemisas" width="200px" /></StaticInfoImg>  
         <StaticInfoImg><img src="/static/assets/images/alianzas/fes.jpeg" alt="Logotipo de Friedrich Ebert Stiftung" width="200px" /></StaticInfoImg>
         <StaticInfoImg><img src="/static/assets/images/alianzas/der.webp" alt="Logotipo de Democracia en Red" width="200px" /></StaticInfoImg>
         <StaticInfoImg><img src="/static/assets/images/alianzas/corona.png" alt="Logotipo de Fundación Corona" width="200px" /></StaticInfoImg>
-        <StaticInfoImg><p width="200px" /></StaticInfoImg>
       </StaticInfoImgs>
     </StyledDiv>
   </section>

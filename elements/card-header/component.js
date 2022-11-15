@@ -8,7 +8,6 @@ import { eyeSlash } from 'react-icons-kit/fa/eyeSlash'
 const Wrapper = styled.div`
 width: 100%;
 background-color: #FFF;
-background-image: url('${(props) => props.img}');
 overflow:hidden;
 background-size: cover;
 background-position: center;
@@ -39,17 +38,17 @@ const Label = styled.span`
   bottom: 7px
 `
 
-const CardHeader = ({ project, img, published }) => (
-  <Wrapper img={img}>
+const CardHeader = ({ project, published }) => (
+  <Wrapper>
     { !published && <Label><Icon icon={eyeSlash} style={{ verticalAlign: 'text-bottom', marginRight: '5px' }} size={14} />Oculto</Label>}
     <CardHeaderContent
       title={project.currentVersion.content.title}
       authorId={project.author._id}
       userId={project.author._id}
       name={project.author.fullname}
-      // hasImage={!!project.currentVersion.content.imageCover}
+      hasImage={!!project.currentVersion.content.imageCover}
       closingDate={project.currentVersion.content.closingDate}
-      hasImage={project.currentVersion.content.tags && project.currentVersion.content.tags.length > 0}
+      // hasImage={project.currentVersion.content.tags && project.currentVersion.content.tags.length > 0}
       party={project.author.fields && project.author.fields.department ? project.author.fields.department : ''} />
   </Wrapper>
 )

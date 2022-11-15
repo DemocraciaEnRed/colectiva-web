@@ -8,7 +8,7 @@ import AboutP from './components/p'
 import ArrowRightLink from './components/arrow-right-link'
 
 const StyledAbout = styled.div`
-  height:600px;
+  height:auto;
   width:90%;
   @media(max-width:700px){
     flex-direction: column;
