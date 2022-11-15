@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   flex-direction:column;
   justify-content:space-between;
   min-height:100vh;
+  background-color: #FFF;
 `
 
 class UserProfile extends Component {
@@ -25,6 +26,7 @@ class UserProfile extends Component {
         <div>
           <Navbar />
           <UserProfileContainer userId={this.props.id} />
+          <hr />
           <MyProjects userId={this.props.id} />
         </div>
         <Footer />
