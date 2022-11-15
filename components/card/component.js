@@ -27,6 +27,14 @@ position: relative;
   width: 100%;
   }
 `
+const CardImage = styled.div`
+  height: 120px;
+  width: 100%;
+  background-image: url(${props => props.src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`
 
 const Card = ({ project, tags }) => (
   <CardContainer>
@@ -34,6 +42,7 @@ const Card = ({ project, tags }) => (
       <a>
         {/* <CardHeader img={project.currentVersion.content.imageCover} published={project.published} /> */}
         {/* <CardHeader hasImage={project.currentVersion.content.tags && project.currentVersion.content.tags.length > 0} img={`/static/assets/images/${tags && project.currentVersion.content.tags && project.currentVersion.content.tags.length > 0 ? tags.find(x => project.currentVersion.content.tags[0] == x.value).key : 'trama-default'}.jpg`} published={project.published} /> */}
+        {project.currentVersion && project.currentVersion.content && project.currentVersion.content.imageCover && <CardImage src={project.currentVersion.content.imageCover} /> }
         <CardHeader published={project.published} project={project} />
         <CardContent
           project={project}
