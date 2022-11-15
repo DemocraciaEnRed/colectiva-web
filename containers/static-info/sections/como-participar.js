@@ -29,28 +29,14 @@ export default () => (
         ¿Cómo funciona?
       </StaticInfoBold>
       <StaticInfoP>
-        Las y los diputados suben <strong>propuestas y proyectos de ley</strong> para que puedan ser enriquecidos con aportes, comentarios y sugerencias
-      </StaticInfoP>
-      <StaticInfoBold>
-        ¿Qué es una <em>propuesta</em>?
-      </StaticInfoBold>
-      <StaticInfoP>
-        Una propuesta de ley es el <strong>estado anterior al proyecto de ley</strong>, es decir, antes de iniciado el trámite parlamentario.
-      </StaticInfoP>
-      <StaticInfoP>
-        Las y los diputados analizarán los <strong>aportes</strong> realizados por la ciudadanía en la propuesta y a partir de esto realizarán los cambios que consideren necesarios para la versión final del texto.
-      </StaticInfoP>
-      <StaticInfoBold>
-        ¿Qué entendemos por aporte?
-      </StaticInfoBold>
-      <StaticInfoP>
-        A través de esta plataforma, la ciudadanía puede hacer <strong>comentarios generales</strong>, para dar su opinión o postura general sobre la propuesta de ley. Además, puede realizar aportes puntuales seleccionando una parte específica del texto y haciendo un <strong>aporte particular</strong>.
-      </StaticInfoP>
-      <StaticInfoP>
-        Las y los diputados analizarán los <strong>aportes</strong>. En la medida en se realicen cambios a la propuesta original se generarán nuevas versiones de la propuesta. Así, las y los usuarios cuyos aportes fueran incorporados, serán colaboradores en la redacción de la propuesta final.
-      </StaticInfoP>
-      <StaticInfoP>
-        Para más detalles sobre las funcionalidades básicas de esta plataforma descargue/consulte el <Icon icon={download} size={16} /> <Link href='/static/files/congreso_manual_de_usuario.pdf'><ManualLink>Manual de usuario</ManualLink></Link>
+        COLECTIVA genera espacios de trabajo entre ciudadanía y Congreso (Senado y Cámara de Representantes):
+        <StaticInfoP>
+          <ul>
+            <li><StaticInfoP>Congresistas y organizaciones presentan iniciativas en la plataforma.</StaticInfoP></li>
+            <li><StaticInfoP>Ciudadanía, organizaciones y movimiento participan en la plataforma para comentar y aportar sobre las iniciativas. Además, el equipo de COLECTIVA y Artemisas, generará con congresistas espacios presenciales de trabajo para deliberar sobre las temáticas.</StaticInfoP></li>
+            <li><StaticInfoP>Nos movilizamos a través de alertas tempranas por Whats App cuando las iniciativas pasen a comisiones y votaciones.</StaticInfoP></li>
+          </ul>
+        </StaticInfoP>
       </StaticInfoP>
     </ComoParticiparWrapper>
   </section>
