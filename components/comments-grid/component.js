@@ -11,7 +11,8 @@ const StyledCommentsGrid = styled.div`
   flex-direction: column;
   // width: 312px;
   border: 1px solid #dae1e7;
-  max-height: 100vh;
+  max-height: calc(100vh-80px);
+  margin-top: 80px;
   overflow-y: scroll;
   z-index: 1;
   background-color: #FFF;
