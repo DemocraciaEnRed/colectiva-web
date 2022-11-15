@@ -35,7 +35,7 @@ const Participate = (props) => {
         </ParticipateItem>
         <ParticipateItem>
           <ParticipateTextbox number={'2'} action={'Conecta'} />
-          <ParticipateP text={'¿Perteneces a una organización de la sociedad civil o movimiento social? Agendemos una llamada para activar tu propuesta en COLECTIVA.'} />
+          <ParticipateP text={'¿Perteneces a una organización de la sociedad civil o movimiento social? Agendemos una llamada para activar tu propuesta en COLECTIVA, escríbenos a innovaciondemocratica@artemisas.org'} />
         </ParticipateItem>
         <ParticipateItem>
           <ParticipateTextbox number={'3'} action={'Involúcrese'} />
