@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import StaticInfoTitle from '../components/static-info-title'
 import StaticInfoBold from '../components/static-info-bold'
 import StaticInfoP from '../components/static-info-p'
+import StaticInfoImgs from '../components/static-info-imgs'
+import StaticInfoImg from '../components/static-info-img'
 
 const StyledDiv = styled.div`
   margin-bottom: 20px;
@@ -42,9 +44,18 @@ export default () => (
       <StaticInfoBold>
         Alianzas
       </StaticInfoBold>
-      <StaticInfoP>
-        <strong>La cocreación de propuestas de ley rompe con la forma tradicional de legislar</strong> donde un equipo de políticos, profesionales y técnicos elaboran los proyectos de ley. <strong>Cocrear supone abrir y federalizar ese proceso y crear un espacio en el que se encuentran las y los legisladores con la ciudadanía</strong>, la academia, las organizaciones de la sociedad civil y personas especializadas en las temáticas que se están discutiendo.
-      </StaticInfoP>
+      <StaticInfoImgs>
+        <StaticInfoImg><img src="/static/assets/images/alianzas/labicpa.png" alt="Logotipo de LabIcPa" width="200px" /></StaticInfoImg>
+        <StaticInfoImg><img src="/static/assets/images/alianzas/open-society.png" alt="Logotipo de Open Society Foundations" width="200px" /></StaticInfoImg>
+        <StaticInfoImg><img src="/static/assets/images/alianzas/ned.png" alt="Logotipo de National endowment for democracy" width="200px" /></StaticInfoImg>
+        <StaticInfoImg><img src="/static/assets/images/alianzas/artemisas.png" alt="Logotipo de Artemisas" width="200px" /></StaticInfoImg>
+      </StaticInfoImgs>
+      <StaticInfoImgs>          
+        <StaticInfoImg><img src="/static/assets/images/alianzas/fes.jpeg" alt="Logotipo de Friedrich Ebert Stiftung" width="200px" /></StaticInfoImg>
+        <StaticInfoImg><img src="/static/assets/images/alianzas/der.webp" alt="Logotipo de Democracia en Red" width="200px" /></StaticInfoImg>
+        <StaticInfoImg><img src="/static/assets/images/alianzas/corona.png" alt="Logotipo de Fundación Corona" width="200px" /></StaticInfoImg>
+        <StaticInfoImg><p width="200px" /></StaticInfoImg>
+      </StaticInfoImgs>
     </StyledDiv>
   </section>
 )
