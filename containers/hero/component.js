@@ -5,7 +5,7 @@ const StyledHero = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 10vh;
+  padding-top: 5rem;
 `
 
 const Hero = () => {

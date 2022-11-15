@@ -32,7 +32,7 @@ const SecondaryBar = styled.div`
   
   height:8rem;
   @media(max-width:700px){
-    height:10rem;
+    height:80px;
    }
    > div {
     width: 32%;

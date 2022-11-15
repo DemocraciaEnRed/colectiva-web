@@ -115,10 +115,11 @@ injectGlobal`
   body {
     margin:0;
     padding:0;
+    margin-top: 80px
     width: 100%;
     background-color: var(--white);
     background-image: url(/static/assets/images/banner-bg.jpg);
-    background-position: top;
+    background-position: right 80px;
     background-repeat: no-repeat;    
     background-size: 100%; //propotional resize
     color: var(--black);
