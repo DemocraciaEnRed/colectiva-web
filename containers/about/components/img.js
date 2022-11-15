@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledImg = styled.div`
-  height: 600px;
-  width: 500px;
+  height: auto;
+  width: 100%;
   background-color: #FB5735;
   background-image:  url('${(props) => props.img}');
 
@@ -13,7 +13,7 @@ const StyledImg = styled.div`
   background-position: center;  
   box-sizing: border-box;
   @media (max-width: 700px) {
-    height: 300px;
+    height: auto;
     width: auto;
     background-image:  url('${(props) => props.imgMobile}');
   }

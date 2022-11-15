@@ -11,7 +11,7 @@ const StyledText = styled.div`
   @media (max-width: 700px) {
     width:100%;
   }
-  height: 540px;
+  height: auto;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
