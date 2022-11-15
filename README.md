@@ -2,7 +2,7 @@
 
 # Colectiva - Frontend
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DemocraciaEnRed_leyesabiertas-web&metric=alert_status)](https://sonarcloud.io/dashboard?id=DemocraciaEnRed_leyesabiertas-web)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=colectiva-web&metric=alert_status)](https://sonarcloud.io/dashboard?id=colectiva-web)
 [![GitHub license](https://img.shields.io/github/license/DemocraciaEnRed/colectiva-notifier)](https://github.com/DemocraciaEnRed/colectiva-notifier/blob/master/LICENSE)
 
 Este es uno de los tres modulos que se requieren descargar, hacer setup e instalar cada uno de los repositorios para poder utilizar Colectiva.
