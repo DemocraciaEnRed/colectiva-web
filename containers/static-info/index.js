@@ -7,6 +7,7 @@ import ComoParticipar from './sections/como-participar'
 import Contacto from './sections/contacto'
 import FAQ from './sections/faq'
 import SobreElSitio from './sections/sobre-el-sitio'
+import CongresoSenado from './sections/congreso-y-senado'
 
 import StaticInfoWrapper from './components/static-info-wrapper'
 import StaticInfoNav from './components/static-info-nav'
@@ -21,10 +22,10 @@ const buttons = [
     'name': 'Cómo participar',
     'value': 'como-participar'
   },
-  {
-    'name': 'Preguntas frecuentes',
-    'value': 'faq'
-  },
+  // {
+  //   'name': 'Preguntas frecuentes',
+  //   'value': 'faq'
+  // },
   {
     'name': 'Sobre el sitio',
     'value': 'sobre-el-sitio'
@@ -32,7 +33,11 @@ const buttons = [
   {
     'name': 'Contacto',
     'value': 'contacto'
-  }
+  },
+  {
+    'name': 'Congreso y Senado',
+    'value': 'congreso-y-senado'
+  }  
 ]
 
 const content = {
@@ -40,7 +45,8 @@ const content = {
   'como-participar': <ComoParticipar />,
   'faq': <FAQ />,
   'sobre-el-sitio': <SobreElSitio />,
-  'contacto': <Contacto />
+  'contacto': <Contacto />,
+  'congreso-y-senado': <CongresoSenado />,
 }
 
 const StyledStaticInfo = styled.div`
