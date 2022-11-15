@@ -56,7 +56,7 @@ export default () => (
             La administración de la Plataforma garantiza la debida protección integral de los datos personales almacenados, así como también el acceso a la información personal que se registre, de conformidad a lo establecido en el artículo 43, párrafo tercero de la Constitución Nacional y la Ley N° 25.326 de Protección de los Datos Personales.
           </StaticInfoP>
           <StaticInfoP>
-            Los Usuarios se comprometen a notificar de inmediato al correo <a href='mailto:leyesabiertas@hcdn.gob.ar'>leyesabiertas@hcdn.gob.ar</a>, cualquier uso no autorizado de su cuenta o cualquier otra situación que pudiera ir contra la seguridad del sitio, como así también de casos de cyberbullying, cyberstalking, cybergrooming y/o cualquier otra situación de hostigamiento, discriminación o acoso.
+            Los Usuarios se comprometen a notificar de inmediato al correo <a href='mailto:innovaciondemocratica@artemisas.org'>innovaciondemocratica@artemisas.org</a>, cualquier uso no autorizado de su cuenta o cualquier otra situación que pudiera ir contra la seguridad del sitio, como así también de casos de cyberbullying, cyberstalking, cybergrooming y/o cualquier otra situación de hostigamiento, discriminación o acoso.
           </StaticInfoP>
           <StaticInfoP>
             <u><em>Información proporcionada por las/os usuarias/os</em></u>
@@ -76,7 +76,7 @@ export default () => (
 
           <StaticInfoP>
           Las direcciones de correo electrónico sólo se utilizarán para enviar notificaciones sobre el uso de la plataforma, avisos sobre futuras publicaciones y otra información relevante sobre la HCDN. No obstante, cada usuario podrá darse de baja en cualquier momento si así lo desea.
-          El Usuario puede ejercer los derechos que como titular de datos personales le asisten (acceso, rectificación, cancelación, oposición, información o revocación). Para tal efecto, puede enviar una comunicación a <a href='mailto:leyesabiertas@hcdn.gob.ar'>leyesabiertas@hcdn.gob.ar</a>.
+          El Usuario puede ejercer los derechos que como titular de datos personales le asisten (acceso, rectificación, cancelación, oposición, información o revocación). Para tal efecto, puede enviar una comunicación a <a href='mailto:innovaciondemocratica@artemisas.org'>innovaciondemocratica@artemisas.org</a>.
           </StaticInfoP>
           <StaticInfoP>
           El Usuario deberá garantizar la veracidad de la información personal directa y comunicar a la Plataforma cualquier modificación que se produzca.
