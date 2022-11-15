@@ -154,7 +154,21 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Colectiva</title>
+          <title>Colectiva - El pais que queremos</title>
+          <meta name='title' content='Colectiva - El pais que queremos' />
+          <meta name='description' content='Colectiva es la primera plataforma feminista en Latinoamérica para discutir, construir y movilizarnos alrededor de las iniciativas que afectarán la vida de las niñas, jóvenes, mujeres y personas #LGBTIQ+ de nuestro país.' />
+
+          <meta property='og:type' content='website' />
+          <meta property='og:url' content='https://encolectiva.com/' />
+          <meta property='og:title' content='Colectiva - El pais que queremos' />
+          <meta property='og:description' content='Colectiva es la primera plataforma feminista en Latinoamérica para discutir, construir y movilizarnos alrededor de las iniciativas que afectarán la vida de las niñas, jóvenes, mujeres y personas #LGBTIQ+ de nuestro país.' />
+          <meta property='og:image' content='/static/sharer01.png' />
+
+          <meta property='twitter:card' content='summary_large_image' />
+          <meta property='twitter:url' content='https://encolectiva.com/' />
+          <meta property='twitter:title' content='Colectiva - El pais que queremos' />
+          <meta property='twitter:description' content='Colectiva es la primera plataforma feminista en Latinoamérica para discutir, construir y movilizarnos alrededor de las iniciativas que afectarán la vida de las niñas, jóvenes, mujeres y personas #LGBTIQ+ de nuestro país.' />
+          <meta property='twitter:image' content='/static/sharer01.png' />
           <meta name='viewport' content='width=device-width, minimum-scale=1 ,initial-scale=1' />
           <meta charSet='utf-8' />
           {this.props.styleTags}
@@ -167,8 +181,8 @@ export default class MyDocument extends Document {
             <script dangerouslySetInnerHTML={{ __html: `  window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-LX2P3W8N85');` }} />
           }
           <link rel='apple-touch-icon' sizes='180x180' href='/static/apple-touch-icon.png' />
-          <link rel='icon' type='image/png' sizes='16x16' href='/static/favicon.ico' /> 
-          <link rel='stylesheet' href='/static/assets/video-js.min.css' /> 
+          <link rel='icon' type='image/png' sizes='16x16' href='/static/favicon.ico' />
+          <link rel='stylesheet' href='/static/assets/video-js.min.css' />
         </Head>
         <body>
           <Main />
