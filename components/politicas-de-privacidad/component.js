@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import jump from 'jump.js'
-import StaticInfoTitle from '../../elements/static-info-title/component'
-import StaticInfoBold from '../../elements/static-info-bold/component'
-import StaticInfoP from '../../elements/static-info-p/component'
-import StaticInfoList from '../../elements/static-info-list/component'
-import StaticInfoWrapper from '../../elements/static-info-wrapper/component'
-import StaticInfoNav from '../../elements/static-info-nav/component'
-import StaticInfoButton from '../../elements/static-info-button/component'
+
+
+
+
+
+import StaticInfoTitle from '../../containers/static-info/components/static-info-title'
+import StaticInfoBold from '../../containers/static-info/components/static-info-bold'
+import StaticInfoP from '../../containers/static-info/components/static-info-p'
+import StaticInfoList from '../../containers/static-info/components/static-info-list'
+import StaticInfoWrapper from '../../containers/static-info/components/static-info-wrapper'
+import StaticInfoNav from '../../containers/static-info/components/static-info-nav'
+import StaticInfoButton from '../../containers/static-info/components/static-info-button'
 
 const StyledStaticInfo = styled.div`
   display: flex;
