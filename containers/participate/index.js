@@ -34,11 +34,11 @@ const Participate = (props) => {
           <ParticipateP text={'Co-construye sobre las iniciativas activas, participa apoyando y comentando las iniciativas.'} />
         </ParticipateItem>
         <ParticipateItem>
-          <ParticipateTextbox number={'2'} action={'Conecta'} />
+          <ParticipateTextbox number={'2'} action={'Sube tu propuesta'} />
           <ParticipateP text={'¿Perteneces a una organización de la sociedad civil o movimiento social? Agendemos una llamada para activar tu propuesta en COLECTIVA, escríbenos a innovaciondemocratica@artemisas.org'} />
         </ParticipateItem>
         <ParticipateItem>
-          <ParticipateTextbox number={'3'} action={'Involúcrese'} />
+          <ParticipateTextbox number={'3'} action={'Contribuye'} />
           <ParticipateP text={'Dinos que temas o problemáticas crees que se deban abordar en el Congreso. Buscaremos conectar estos temas con Senadoras y Re'} />
         </ParticipateItem>
       </ParticipateContainer>
