@@ -89,11 +89,11 @@ export default () => (
         </ol>
       </StaticInfoP>
     </StyledDiv>
-    <StyledDiv>
+    {/* <StyledDiv>
       <StaticInfoP>
         <img src="/static/assets/images/congreso-senado.jpeg" alt="Infografía sobre el procedimiento para discutir y aprobar leyes" style={{maxWidth: '850px'}} />
       </StaticInfoP>
-    </StyledDiv>    
+    </StyledDiv>     */}
 
   </section>
 )
