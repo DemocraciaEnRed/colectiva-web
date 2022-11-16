@@ -12,7 +12,7 @@ const StyledDiv = styled.div`
 
 export default () => (
   <section>
-    <StaticInfoTitle>Congreso y Senado colombia </StaticInfoTitle>
+    <StaticInfoTitle>Congreso y Senado Colombia</StaticInfoTitle>
     <StyledDiv>
       <StaticInfoBold>
         ¿QUÉ ES EL CONGRESO DE LA REPÚBLICA Y QUÉ FUNCIONES CUMPLE?
