@@ -61,12 +61,12 @@ const links = [
     link: '/'
   },
   {
-    name: 'Participá',
+    name: 'Participa',
     hash: '#projects',
     link: '/'
   },
   {
-    name: 'Conocenos',
+    name: 'Conócenos',
     hash: '#__next',
     link: '/info?section=acerca-de'
   },
