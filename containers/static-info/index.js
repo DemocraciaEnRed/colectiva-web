@@ -35,7 +35,7 @@ const buttons = [
     'value': 'contacto'
   },
   {
-    'name': 'Congreso y Senado',
+    'name': 'Conoce cómo funciona el Congreso',
     'value': 'congreso-y-senado'
   }  
 ]

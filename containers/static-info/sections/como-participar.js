@@ -31,11 +31,11 @@ export default () => (
       <StaticInfoP>
         COLECTIVA genera espacios de trabajo entre ciudadanía y Congreso (Senado y Cámara de Representantes):
         <StaticInfoP>
-          <ul>
+          <ol>
             <li><StaticInfoP>Congresistas y organizaciones presentan iniciativas en la plataforma.</StaticInfoP></li>
             <li><StaticInfoP>Ciudadanía, organizaciones y movimiento participan en la plataforma para comentar y aportar sobre las iniciativas. Además, el equipo de COLECTIVA y Artemisas, generará con congresistas espacios presenciales de trabajo para deliberar sobre las temáticas.</StaticInfoP></li>
             <li><StaticInfoP>Nos movilizamos a través de alertas tempranas por Whats App cuando las iniciativas pasen a comisiones y votaciones.</StaticInfoP></li>
-          </ul>
+          </ol>
         </StaticInfoP>
       </StaticInfoP>
     </ComoParticiparWrapper>
