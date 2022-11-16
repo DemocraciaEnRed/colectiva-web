@@ -12,7 +12,7 @@ export default () => (
     <StaticInfoTitle>Sobre el sitio</StaticInfoTitle>
     <StyledDiv>
       <StaticInfoP>
-        El Portal de <strong>Colectiva</strong> está desarrollado por Democracia en Red y coordinado por la Dirección General de Innovación, Planificación y Nuevas Tecnologías de la Cámara de Diputados de La Nación.
+        El Portal de Colectiva está desarrollado por Democracia en Red y coordinado por Organización Artemisas
       </StaticInfoP>
     </StyledDiv>
   </section>
