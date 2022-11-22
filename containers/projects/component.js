@@ -360,9 +360,9 @@ class Projects extends Component {
         <TitleH2>Iniciativas activas</TitleH2>
         <SubtitleH3>Vamos a deliberar y co construir sobre las propuestas de ley de Senadoras y Congresistas</SubtitleH3>
         <Options>
-          <Search type='text' placeholder='Buscá por nombre de la propuesta' onInput={(e) => this.toggleSort('textFilter', e.target.value)} />
+          <Search type='text' placeholder='Buscá por nombre de la autora o nombre de la propuesta' onInput={(e) => this.toggleSort('textFilter', e.target.value)} />
           <OptionsWrapper>
-            <FilterButton onClick={this.handleShowFilters}>Filtrar <Icon icon='down-arrow.svg' /></FilterButton>
+            <FilterButton onClick={this.handleShowFilters}>Filtrar ▼</FilterButton>
             <Filters style={{ display: this.state.filterShow ? 'block' : 'none' }}>
               <OptionsSection>
                 <OptionLabel>Ordenar:</OptionLabel>
