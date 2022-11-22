@@ -92,8 +92,9 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
             projectView
             authorId={project.author._id}
             userId={project.author._id}
-            name={project.author.fullname}
-            party={project.author.fields && project.author.fields.department ? project.author.fields.department : ''} />
+            name={project.currentVersion.content && project.currentVersion.content.authorFullname ? project.currentVersion.content.authorFullname : project.author.fullname}
+            role={project.currentVersion.content && project.currentVersion.content.authorRole ? project.currentVersion.content.authorRole : project.author.role}
+            party={false} />
           <ClosingDate closingDate={project.currentVersion.content.closingDate} closed={project.closed} creationDate={project.currentVersion.createdAt} />
           <ArticlesCommentsCounter commentsCount={project.commentsCount} apoyosCount={project.apoyosCount} project={project._id} />
           <ProjectHeaderVersion

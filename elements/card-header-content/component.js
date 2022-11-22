@@ -24,6 +24,20 @@ color:#FB5735;
 padding-bottom:1rem;
 `
 
+const StatusTag = styled.div`
+  position: absolute;
+  top: ${(props) => props.hasImage ? '86px' : '0px'};
+  right: 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  background-color: #ffff66;
+  color: black;
+  padding: 5px 5px 5px 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  font-weight: 800;
+`
+
 const Title = styled.div`
   margin-top:28px;
   font-size:2.7rem;
@@ -65,12 +79,14 @@ const formatDate = (createdAt) => {
   return (createdAt.substring(0, 10).split('-').reverse().join('/'))
 }
 
-const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, party, closingDate }) => (
+const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, status, role, party, closingDate }) => (
   <Wrapper hasImage={hasImage}>
+    { status && <StatusTag hasImage={hasImage}>{status}</StatusTag> }
     <UserAvatar
       userId={userId}
       name={name}
-      party={party}
+      party={false}
+      role={role}
       authorId={authorId} />
     <HrWrapper />
     <TextWrapper>

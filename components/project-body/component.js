@@ -63,6 +63,9 @@ const ProjectBody = ({ project }) => (
             {isAuthor && editMode &&
               <ProjectFields
                 title={project.currentVersion.content.title}
+                authorFullname={project.currentVersion.content.authorFullname}
+                authorRole={project.currentVersion.content.authorRole}
+                status={project.currentVersion.content.status}
                 closingDate={project.currentVersion.content.closingDate}
                 imageCover={project.currentVersion.content.imageCover}
                 youtubeId={project.currentVersion.content.youtubeId}
