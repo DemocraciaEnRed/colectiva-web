@@ -218,14 +218,16 @@ class Profile extends Component {
                   style={{ marginTop: '10px' }} />
               </ProfileLabel>
               <ProfileLabel htmlFor='birthday'>
-          Fecha de Nacimiento
+                Fecha de Nacimiento
                 <ProfileInput type='text'
                   name='birthday'
                   value={this.state.birthday}
                   onChange={this.handleChange}
+                  required
                   readOnly={!isOwner}
                   disabled={!isOwner}
                   placeholder='30/02/1900' />
+                  <span style={{ color: '#FB5735', fontSize: '1.1rem' }}>Requerido. En formato dd/mm/yyyy</span>
               </ProfileLabel>
               <ProfileLabel htmlFor='department'>
           Departamento
@@ -241,8 +243,10 @@ class Profile extends Component {
                   name='whatsapp'
                   value={this.state.whatsapp}
                   readOnly={!isOwner}
+                  required
                   disabled={!isOwner}
                   onChange={this.handleChange} />
+                  <span style={{ color: '#FB5735', fontSize: '1.1rem' }}>Requerido.</span>
               </ProfileLabel>
               {/* <ProfileLabel htmlFor='occupation'>
           Ocupación
