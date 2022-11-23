@@ -22,7 +22,7 @@ const SecondaryBar = styled.div`
   
   justify-content:center;
   padding: 2rem 0%;
-  z-index:0;
+  z-index:1;
   position: fixed!important;
   background: #fff;
   transition: height 0.4s ease-out;
