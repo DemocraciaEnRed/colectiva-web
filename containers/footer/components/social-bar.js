@@ -3,15 +3,14 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const SocialBar = styled.div`
-  width:130px;
-  height:50px;
-  margin-right:auto;
-  margin-left:auto;
+  margin-right: auto;
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-top:1rem;
-  margin-bottom:3rem;
+  @media (max-width: 760px) {
+    margin-left: auto;
+    margin-bottom: 2rem;
+  }
 `
 
 SocialBar.propTypes = {

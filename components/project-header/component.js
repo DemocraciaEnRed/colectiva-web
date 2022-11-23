@@ -21,6 +21,7 @@ import ProjectBreadcrumb from '../project-breadcrumb/component'
 import ClosedProposal from '../closed-proposal/component'
 import SharerSocial from '../../elements/sharer-social/component'
 import ProjectStatus from '../../elements/project-status/component'
+import ProjectStatusCustom from '../../elements/project-status-custom/component'
 import ModeBar from '../../components/mode-bar/component'
 import ModeButton from '../../elements/mode-button/component'
 import ModeBarLinkButton from '../../elements/mode-bar-link-button/component'
@@ -92,8 +93,9 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
             projectView
             authorId={project.author._id}
             userId={project.author._id}
-            name={project.author.fullname}
-            party={project.author.fields && project.author.fields.department ? project.author.fields.department : ''} />
+            name={project.currentVersion.content && project.currentVersion.content.authorFullname ? project.currentVersion.content.authorFullname : project.author.fullname}
+            role={project.currentVersion.content && project.currentVersion.content.authorRole ? project.currentVersion.content.authorRole : project.author.role}
+            party={false} />
           <ClosingDate closingDate={project.currentVersion.content.closingDate} closed={project.closed} creationDate={project.currentVersion.createdAt} />
           <ArticlesCommentsCounter commentsCount={project.commentsCount} apoyosCount={project.apoyosCount} project={project._id} />
           <ProjectHeaderVersion
@@ -105,7 +107,8 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
             <TogglePublish project={project} isPublished={isPublished} setPublish={setPublish} togglePublish={togglePublish} />
           }
         </TopBarWrapper>
-        <ProjectStatus closed={project.closed} />
+        <ProjectStatus closed={project.closed} />&nbsp;
+        <ProjectStatusCustom status={project.currentVersion.content.status} />
         <ProjectTitle>{project.currentVersion.content.title}</ProjectTitle>
         {/* <ProjectSubtitle
           project={project._id}

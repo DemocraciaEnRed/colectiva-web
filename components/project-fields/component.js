@@ -832,6 +832,9 @@ const TagsNotificationCheckboxDiv = styled.div`
 class ProjectFields extends Component {
   state = {
     title: null,
+    authorFullname: null,
+    authorRole: null,
+    status: null,
     closingDate: null,
     imageCover: null,
     youtubeId: null,
@@ -848,6 +851,9 @@ class ProjectFields extends Component {
   componentDidMount() {
     let {
       title,
+      authorFullname,
+      authorRole,
+      status,
       closingDate,
       imageCover,
       youtubeId,
@@ -860,6 +866,9 @@ class ProjectFields extends Component {
 
     this.setState({
       title,
+      authorFullname: authorFullname || null,
+      authorRole: authorRole || null,
+      status: status || null,
       imageCover,
       youtubeId,
       youtubeURL: youtubeId ? 'https://www.youtube.com/watch?v=' + youtubeId : '',
@@ -888,6 +897,9 @@ class ProjectFields extends Component {
   getBodyPayload = () => {
     return {
       title: this.state.title,
+      authorFullname: this.state.authorFullname,
+      authorRole: this.state.authorRole,
+      status: this.state.status,
       imageCover: this.state.imageCover,
       closingDate: new Date(this.state.closingDate).toISOString(),
       youtubeId: this.state.youtubeId,
@@ -979,6 +991,33 @@ class ProjectFields extends Component {
             type='text'
             value={this.state.title}
             name='title'
+            onChange={this.handleInputChange}
+            placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
+        </ProfileLabel>
+        <ProfileLabel>
+          Nombre y Apellido de la autora o el autor:
+          <InputField
+            type='text'
+            value={this.state.authorFullname}
+            name='authorFullname'
+            onChange={this.handleInputChange}
+            placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
+        </ProfileLabel>
+        <ProfileLabel>
+          Cargo de la autora o el autor:
+          <InputField
+            type='text'
+            value={this.state.authorRole}
+            name='authorRole'
+            onChange={this.handleInputChange}
+            placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
+        </ProfileLabel>
+        <ProfileLabel>
+          Estado del proyecto:
+          <InputField
+            type='text'
+            value={this.state.status}
+            name='status'
             onChange={this.handleInputChange}
             placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
         </ProfileLabel>

@@ -76,7 +76,7 @@ justify-content:space-between;
 const IconWrapper = styled.div`
   padding-right:.5rem;`
 
-const UserAvatar = ({ projectView, userId, name, party, badge }) => (
+const UserAvatar = ({ projectView, userId, name, role, party, badge }) => (
   <Wrapper projectView={projectView}>
     <Link href={{ pathname: '/userprofile', query: { id: userId } }}>
       <Avatar projectView={projectView} userId={userId} />
@@ -85,7 +85,7 @@ const UserAvatar = ({ projectView, userId, name, party, badge }) => (
       <Link href={{ pathname: '/userprofile', query: { id: userId } }}>
         <Name>{name}</Name>
       </Link>
-      <SubName>Artemisas</SubName>
+      {role ? <SubName>{role}</SubName> : null}
       <Party>
         {badge && <IconWrapper><Icon icon={checkCircle} /></IconWrapper>}
         <p>{party}</p>

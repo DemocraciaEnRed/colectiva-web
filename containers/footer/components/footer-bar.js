@@ -3,25 +3,26 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const FooterBar = styled.div`
-  width:60%;
-  font-family:var(--regular);
-  margin-left:auto;
-  margin-right:auto;
-  height: 2rem;
-  display: flex;
+  font-family: var(--alter-regular);
+  // display: flex;
   justify-content:center;
-  margin-bottom: 2rem;
-  @media (max-width: 760px) {
-    margin-bottom: 6rem;
-  }
+  align-items:right;
+  font-size: 1.6rem;
   > a {
+    font-family: var(--alter-regular);
     color: #2c4c61;
-    display: inline-block;
+    display: block;
+    text-align: right;
     padding: 10px 15px;
-    font-size: 1.6rem;
-    max-width:220px;
-
-    box-sizing:border-box;
+    @media (max-width: 760px) {
+      font-size: 1.6rem;
+      padding: 10px 0;
+      text-align: center;
+    }
+    &:hover {
+      color: #2c4c61;
+      font-weight: 700;
+    }
   }
 `
 
