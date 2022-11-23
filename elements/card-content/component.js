@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
 `
 const Tags = styled.div`
-  width:90%;
+  width:95%;
   margin: auto
   margin-bottom:0;
   padding:20px 0 0 0
@@ -24,17 +24,16 @@ const Tags = styled.div`
 const ProjectTag = styled.div`
 margin-bottom: 5px;
 margin-right: 5px;
-background:#B6D5F2;
-color: #4C4C4E;
+background:#000;
+color: #fff;
 border-radius:5px;
 font-weight: 600;
-font-family: var(--italic);
-padding:8px;
+padding:8px 10px;
 font-size:12px
-line-height: 15px;
+line-height: 12px;
 text-align: center;
-letter-spacing: 1.1px;
-text-transform: capitalize;
+// letter-spacing: 
+text-transform: uppercase;
 
 `
 

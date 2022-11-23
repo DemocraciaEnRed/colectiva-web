@@ -39,14 +39,14 @@ const StatusTag = styled.div`
 `
 
 const Title = styled.div`
-  margin-top:28px;
+  margin-top:15px;
   font-size:2.7rem;
-  line-height: 3.1rem;
+  line-height: 2.8rem;
   word-break: break-word;
   color:#4C4C4E;
   text-align:left;
   font-family: var(--bold);
-  padding-bottom:2rem;
+  padding-bottom:1rem;
   @media (max-width:700px){
     margin-top:10px;
   }
