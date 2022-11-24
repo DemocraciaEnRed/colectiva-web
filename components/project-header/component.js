@@ -129,6 +129,7 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
         <ModeBar>
           <ModeBarLinkButton active>Presentación</ModeBarLinkButton>
           <ModeBarLinkButton href={{ pathname: '/articulado', query: { id: project._id } }}>Artículos</ModeBarLinkButton>
+          <ModeBarLinkButton href={{ pathname: '/activacion', query: { id: project._id } }}>Activacion</ModeBarLinkButton>
           <ModeBarApoyarButton project={project} apoyarProyecto={apoyarProyecto} />
         </ModeBar>
       }
@@ -136,6 +137,7 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
         <ModeBar>
           <ModeBarLinkButton href={{ pathname: '/propuesta', query: { id: project._id } }}>Presentación</ModeBarLinkButton>
           <ModeBarLinkButton href={{ pathname: '/articulado', query: { id: project._id } }}>Artículos</ModeBarLinkButton>
+          <ModeBarLinkButton href={{ pathname: '/activacion', query: { id: project._id } }}>Activacion</ModeBarLinkButton>
           <ModeBarApoyarButton project={project} apoyarProyecto={apoyarProyecto} />
         </ModeBar>
       }
@@ -143,11 +145,20 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
         <ModeBar>
           <ModeBarLinkButton href={{ pathname: '/propuesta', query: { id: project._id } }}>Presentación</ModeBarLinkButton>
           <ModeBarLinkButton active>Artículos</ModeBarLinkButton>
+          <ModeBarLinkButton href={{ pathname: '/activacion', query: { id: project._id } }}>Activacion</ModeBarLinkButton>
           <ModeBarApoyarButton project={project} apoyarProyecto={apoyarProyecto} />
           <ModeButton>
             {withComments ? <Icon icon={squareO} size={20} /> : <Icon icon={checkSquareO} size={20} />}&nbsp;
             Modo lectura
           </ModeButton>
+        </ModeBar>
+      }
+      {currentSection === '/activacion' &&
+        <ModeBar>
+          <ModeBarLinkButton href={{ pathname: '/propuesta', query: { id: project._id } }}>Presentación</ModeBarLinkButton>
+          <ModeBarLinkButton href={{ pathname: '/articulado', query: { id: project._id } }}>Artículos</ModeBarLinkButton>
+          <ModeBarLinkButton active >Activacion</ModeBarLinkButton>
+          <ModeBarApoyarButton project={project} apoyarProyecto={apoyarProyecto} />
         </ModeBar>
       }
     </ProjectHeaderWrapper>

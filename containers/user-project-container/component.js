@@ -10,6 +10,7 @@ import ProjectBody from '../../components/project-body/component'
 import ProjectComments from '../../components/project-comments/component'
 import UserEditor from '../../components/user-editor/component'
 import Versiones from '../versiones/component'
+import Activacion from '../activacion/component'
 import ProjectTags from '../../components/project-tags/component'
 
 
@@ -111,6 +112,14 @@ export default class extends Component {
             <Fragment>
               <Versiones
                 project={project.document} />
+            </Fragment>
+          }
+          {this.props.section === '/activacion' &&
+            <Fragment>
+              <Activacion
+                project={project.document}
+                isAuthor={isAuthor}
+                editMode={this.state.editMode} />
             </Fragment>
           }
         </ArticlesContext.Provider>
