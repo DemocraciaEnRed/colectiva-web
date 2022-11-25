@@ -266,6 +266,23 @@ const EventDeleteButton = styled.button`
   }
 `
 
+const ButtonAgregarLink = styled.button`
+  padding: 4px 8px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2857e6;
+  color: #fff;
+  // font-size: 1rem;
+`
+
+const LinkGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin-top: 10px;
+`
+
 class Activacion extends Component {
   constructor(props) {
     super(props)
@@ -279,9 +296,13 @@ class Activacion extends Component {
         text: '',
         date: '',
         imageUrl: '',
-        youtubeId: ''
+        youtubeId: '',
+        links: []
       },
+      urlAux: '',
+      titleAux: '',
       formKey: 0,
+      linkKey: 0,
       showSuccessMessage: false,
       showErrorMessage: false
     }
@@ -314,6 +335,10 @@ class Activacion extends Component {
     const { eventForm } = this.state
     eventForm[e.target.name] = e.target.value
     this.setState({ eventForm })
+  }
+
+  handleFormChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleEventYoutubeIdChange = (e) => {
@@ -416,9 +441,26 @@ class Activacion extends Component {
     }
   }
 
+  handleAddLink = (e) => {
+    e.preventDefault()
+    const { eventForm } = this.state
+    eventForm.links.push({
+      url: this.state.urlAux,
+      title: this.state.titleAux
+    })
+    // clear urlAux and titleAux
+    this.setState((prevState) => ({
+      linkKey: prevState.linkKey + 1,
+      eventForm,
+      urlAux: '',
+      titleAux: ''
+    }))
+
+  }
+
   render () {
     const { project, isAuthor, editMode } = this.props
-    const { isLoading, timeline, disableForm, formKey, showErrorMessage, showSuccessMessage } = this.state
+    const { isLoading, timeline, disableForm, formKey, showErrorMessage, showSuccessMessage, linkKey, eventForm } = this.state
     // if (!project) return null
     // const { isAuthor } = project
     let plugins = []
@@ -478,18 +520,61 @@ class Activacion extends Component {
                   </div>
                   {/* event text */}
                 </div>
-                {
-                  isAuthor && editMode && (
+                <div>
+                  {/* event title */}
+                  <h3>Links agregados</h3>
+                  {
+                    eventForm.links.map((link, index) => (
+                      <div key={`link-${index}`}>
+                        <p>* <a href={link.url} target="_blank">{link.title}</a></p>
+                      </div>
+                    ))
+                  }
+                  {
+                    eventForm.links.length == 0 &&
+                    <p>No hay links agregados</p>
+                  }
+                  <LinkGrid>
                     <div>
-                      <ButtonSubmit type='submit' disabled={disableForm}>Crear evento</ButtonSubmit>
+                      <FieldLabel htmlFor='urlAux'>Ingrese la URL del link</FieldLabel>
+                      <div>
+                        <CustomInput type='text' name='urlAux' key={`input-urlAux-${linkKey}`} disabled={disableForm} placeholder='https://google.com' onChange={this.handleFormChange} />
+                      </div>
                     </div>
-                  )
-                }
+                    <div>
+                      <FieldLabel htmlFor='titleAux'>Ingrese el titulo del link</FieldLabel>
+                      <div>
+                        <CustomInput type='text' name='titleAux' key={`input-titleAux-${linkKey}`} disabled={disableForm} placeholder='Descargar documento' onChange={this.handleFormChange} />
+                      </div>
+                    </div>
+                  </LinkGrid>
+                  <ButtonAgregarLink type='button' disabled={disableForm || (this.state.titleAux == '' || this.state.urlAux == '')} onClick={this.handleAddLink}>Agregar link</ButtonAgregarLink>
+                  {/* event text */}
+                </div>
+                <br></br>
+                <br></br>
+                <div>
+                  <ButtonSubmit type='submit' disabled={disableForm}>Crear evento</ButtonSubmit>
+                </div>
               </form>
             </ActivacionFormContainer>
           )
         }
         <TimelineContainer>
+          {
+            !isLoading && timeline.length === 0 && (
+              <div>
+                <h2>No hay eventos</h2>
+              </div>
+            )
+          }
+          {
+            isLoading && (
+              <div>
+                <h2>Cargando...</h2>
+              </div>
+            )
+          }
           {
             timeline.map((event, index) => {
               return (
