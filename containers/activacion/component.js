@@ -225,7 +225,7 @@ const EventDate = styled.p`
   font-size: 1.4rem;
   font-weight: 400;
   color: #000;
-  margin-top: 10px;
+  margin-top: 25px;
   padding-right: 5px;
   text-align: right;
   width: 100%;
@@ -234,7 +234,7 @@ const EventDate = styled.p`
 const EventDateDot = styled.div`
   display: block;
   position: absolute;
-  top: 10px;
+  top: 25px;
   right: 3px;
   width: 24px;
   height: 24px;
@@ -245,7 +245,7 @@ const EventDateDot = styled.div`
 
 const EventDateLine = styled.div`
   width: ${(props) => props.last ? '0px' : '2px'};
-  margin: 18px 15px 0px 15px
+  margin: 28px 15px 0px 15px
   height: 100%;
   background-color: #2857e6;
   display:flex;
@@ -281,6 +281,30 @@ const LinkGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   margin-top: 10px;
+`
+
+const LinksFormList = styled.ul`
+  margin-left: 20px;
+  a {
+    color: #2857e6;
+    text-decoration: underline;
+    font-size: 1.3rem;
+  }
+`
+const EventLinks = styled.div`
+  display: block;
+  margin-top: 10px;
+  a {
+    display: block;
+    margin-bottom: 5px;
+    color: #2857e6;
+    text-decoration: underline;
+    font-size: 1.3rem;
+    &:hover {
+      // color is #2857e6 but 10% more lighter
+      color: #3d6eeb;
+    } 
+  }
 `
 
 class Activacion extends Component {
@@ -404,7 +428,8 @@ class Activacion extends Component {
           text: '',
           date: '',
           imageUrl: '',
-          youtubeId: ''
+          youtubeId: '',
+          links: []
         }
       }))
       // fetch
@@ -456,6 +481,12 @@ class Activacion extends Component {
       titleAux: ''
     }))
 
+  }
+
+  handleDeleteLink = (index) => {
+    const { eventForm } = this.state
+    eventForm.links.splice(index, 1)
+    this.setState({ eventForm })
   }
 
   render () {
@@ -522,17 +553,17 @@ class Activacion extends Component {
                 </div>
                 <div>
                   {/* event title */}
-                  <h3>Links agregados</h3>
+                  <h3>Links relacionados</h3>
                   {
-                    eventForm.links.map((link, index) => (
-                      <div key={`link-${index}`}>
-                        <p>* <a href={link.url} target="_blank">{link.title}</a></p>
-                      </div>
+                    eventForm.links && eventForm.links.map((link, index) => (
+                      <LinksFormList key={`link-${index}`}>
+                        <li> <a href={link.url} target="_blank">{link.title}</a> <span onClick={() => this.handleDeleteLink(index)} style={{color: 'red', textDecoration: 'underline', cursor: 'pointer', fontSize: '1rem'}}>(Eliminar)</span></li>
+                      </LinksFormList>
                     ))
                   }
                   {
-                    eventForm.links.length == 0 &&
-                    <p>No hay links agregados</p>
+                    eventForm.links && eventForm.links.length == 0 &&
+                    <p>&nbsp;&nbsp;&nbsp;No hay links agregados</p>
                   }
                   <LinkGrid>
                     <div>
@@ -560,6 +591,12 @@ class Activacion extends Component {
             </ActivacionFormContainer>
           )
         }
+        <h1>
+          Linea de tiempo
+        </h1>
+        <p>
+          Ordenados de más reciente al mas antiguo
+        </p>
         <TimelineContainer>
           {
             !isLoading && timeline.length === 0 && (
@@ -586,7 +623,26 @@ class Activacion extends Component {
                   </EventDateContainer>
                   <EventBox>
                     <EventTitle>{event.title}</EventTitle>
-                    <EventText>{event.text}</EventText>
+                    {
+                      event.text && 
+                        <EventText>{event.text}</EventText>
+                    }
+                    {
+                      event.links && event.links.length > 0 && (
+                        <EventLinks>
+                          <h3>Links</h3>
+                          <ul style={{ marginLeft: '15px' }}>
+                            {
+                              event.links.map((link, index) => (
+                                <li key={`link-${index}`}>
+                                  <a href={link.url} target="_blank">{link.title}</a>
+                                </li>
+                              ))
+                            }
+                          </ul>
+                        </EventLinks>
+                      )
+                    }
                     {event.imageUrl && <EventImage src={event.imageUrl} />}
                     {event.youtubeId && <ProjectVideo youtubeId={event.youtubeId} />}
                   </EventBox>
