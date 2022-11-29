@@ -592,7 +592,7 @@ class Activacion extends Component {
           )
         }
         <h1>
-          Linea de tiempo
+          Historial de acciones
         </h1>
         <p>
           Ordenados de más reciente al mas antiguo
