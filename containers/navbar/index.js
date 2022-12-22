@@ -19,8 +19,6 @@ import WithUserContext from '../../components/with-user-context/component'
 const SecondaryBar = styled.div`
   height:6rem;
   display: flex;
-  
-  justify-content:center;
   padding: 2rem 0%;
   z-index:1;
   position: fixed!important;
@@ -31,14 +29,11 @@ const SecondaryBar = styled.div`
   width: 100%;
   
   height:8rem;
-  @media(max-width:700px){
+  @media(max-width:975px){
     height:80px;
    }
-   > div {
-    width: 32%;
-    justify-content: space-around;
-  }
-  @media(max-width:700px){
+   
+  @media(max-width:975px){
     transition: height 0.4s ease-out;
    }
 
@@ -51,8 +46,39 @@ const SecondaryBar = styled.div`
       height:auto;
     }
   }
-
 `
+
+
+const MobileMenu = styled.a`
+    padding: 25px 0px;
+    width: 40px;
+    height: 35px;
+    background-image:url(${'/static/assets/mobileMenu.svg'});
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+`
+const MobileNavbarDisplay = styled.div`
+
+  display: block;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 80px;
+  background: white;
+  ul {
+    padding: 10px 0;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #e8;
+    list-style-type: none;
+    font-size: 22px;
+  }
+    
+`
+
+
+
 
 const links = [
   {
@@ -61,12 +87,22 @@ const links = [
     link: '/'
   },
   {
-    name: 'Participa',
-    hash: '#projects',
+    name: '¿Cómo participar?',
+    hash: '#participate',
     link: '/'
   },
   {
-    name: 'Conócenos',
+    name: 'Iniciativas',
+    hash: '#projects',
+    link: '/'
+  },  
+  {
+    name: 'El Congreso',
+    hash: '#__next',
+    link: '/info?section=congreso-y-senado'
+  },    
+  {
+    name: 'Acerca de',
     hash: '#__next',
     link: '/info?section=acerca-de'
   },
@@ -105,15 +141,23 @@ NavbarLink.propTypes = {
 const Navbar = (props) => {
   const [scroll, setScroll] = useState(0)
   const handleScroll = (position) => setScroll(position)
-  const [y, setY] = useState()
   const [menu, setMenu] = useState(false)
+  const [width, setWidth] = useState('')
   const [showTooltip, setShowTooltip] = useState(false)
   const [showTagsTooltip, setShowTagsTooltip] = useState(false)
+  const [mobileMenuOn, setMobileMenuOn] = useState(false)
+  
 
   useEffect(() => {
     window.addEventListener('scroll', (e) => handleScroll(e.target.documentElement.scrollTop))
-    // window.addEventListener('resize', () => setY(document.getElementById('secondaryBar').offsetTop))
-    setY(document.getElementById('secondaryBar').offsetTop)
+  }, [])
+
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 975px)').matches) {
+      setWidth('mobile')
+    } else {
+      setWidth('desktop')
+    }
   }, [])
 
   useEffect(() => {
@@ -130,47 +174,107 @@ const Navbar = (props) => {
   try { hasTags = props.authContext.user.fields.tags.length > 0 }
   catch (e) { hasTags = false }
 
+  switch (width) {
+    case 'desktop':
+      return (
+        <SecondaryBar id='secondaryBar' position={scroll}>
+          <NavbarLogo />
+          <LinkBar>
+            {links.map((li, i) => {
+              return <NavbarLink
+                key={i}
+                name={li.name}
+                link={li.link}
+                hash={li.hash} />
+            })}
+          </LinkBar>
+    
+          {props.authContext.authenticated
+              ? (
+                <LoggedUserBar>
+                  <LoggedUser onClick={() => setMenu(!menu)} user={props.authContext.user} />
+                  {menu &&
+                  <UserMenu logout={props.authContext.logout} user={props.authContext.user} create={() => console.log("this.createProject")} isAuthor={props.authContext.isAuthor} />
+                  }
+                </LoggedUserBar>
+              ) : (
+                <UserBar>
+                  <Button primary bigger onClick={props.authContext.login}>Ingresar</Button>
+                </UserBar>
+              )}
+            { !props.authContext.authenticated && showTooltip &&
+              <Tooltip top={'110px'} right={'20px'} localStorageHideKey='hide-tooltips'>
+                Para agregar aportes debe estar registrado.
+                Ingrese a la sección y complete el formulario
+              </Tooltip>
+            }
+            { props.authContext.authenticated && !hasTags && showTagsTooltip &&
+              <Tooltip top={'110px'} right={'20px'} localStorageHideKey='hide-tagstooltips'>
+                ¡Registrá en tu perfil tu celular y temas de interés para las Alertas tempranas por WhatsApp!
+              </Tooltip>
+            }
+    
+        </SecondaryBar>
+      )
+    case 'mobile':
+      return (
+        <SecondaryBar id='secondaryBar' position={scroll}>
+          <NavbarLogo />
+          <MobileMenu onClick={() => setMobileMenuOn(!mobileMenuOn)} />
+          {
+            mobileMenuOn && <MobileNavbarDisplay >
+                <ul>
+                {links.map((li, i) => {
+                    return <li style={{'border-bottom': '1px;'}}>
+                      <NavbarLink
+                      key={i}
+                      name={li.name}
+                      link={li.link}
+                      hash={li.hash} />
+                    </li>
+                  })}
+                </ul>
+                </MobileNavbarDisplay>
+          }
 
-  return (
-    <SecondaryBar id='secondaryBar' y={y} position={scroll}>
-      <NavbarLogo />
-      <LinkBar>
-        {links.map((li, i) => {
-          return <NavbarLink
-            key={i}
-            name={li.name}
-            link={li.link}
-            hash={li.hash} />
-        })}
-      </LinkBar>
 
-      {props.authContext.authenticated
-          ? (
-            <LoggedUserBar>
-              <LoggedUser onClick={() => setMenu(!menu)} user={props.authContext.user} />
-              {menu &&
-              <UserMenu logout={props.authContext.logout} user={props.authContext.user} create={() => console.log("this.createProject")} isAuthor={props.authContext.isAuthor} />
-              }
-            </LoggedUserBar>
-          ) : (
-            <UserBar>
-              <Button primary bigger onClick={props.authContext.login}>Ingresar</Button>
-            </UserBar>
-          )}
-        { !props.authContext.authenticated && showTooltip &&
-          <Tooltip top={'110px'} right={'20px'} localStorageHideKey='hide-tooltips'>
-            Para agregar aportes debe estar registrado.
-            Ingrese a la sección y complete el formulario
-          </Tooltip>
-        }
-        { props.authContext.authenticated && !hasTags && showTagsTooltip &&
-          <Tooltip top={'110px'} right={'20px'} localStorageHideKey='hide-tagstooltips'>
-            ¡Registrá en tu perfil tu celular y temas de interés para las Alertas tempranas por WhatsApp!
-          </Tooltip>
-        }
+          {props.authContext.authenticated
+              ? (
+                <LoggedUserBar>
+                  <LoggedUser onClick={() => setMenu(!menu)} user={props.authContext.user} />
+                  {menu &&
+                  <UserMenu logout={props.authContext.logout} user={props.authContext.user} create={() => console.log("this.createProject")} isAuthor={props.authContext.isAuthor} />
+                  }
+                </LoggedUserBar>
+              ) : (
+                <UserBar>
+                  <Button primary bigger onClick={props.authContext.login}>Ingresar</Button>
+                </UserBar>
+              )}
+            { !props.authContext.authenticated && showTooltip &&
+              <Tooltip top={'110px'} right={'20px'} localStorageHideKey='hide-tooltips'>
+                Para agregar aportes debe estar registrado.
+                Ingrese a la sección y complete el formulario
+              </Tooltip>
+            }
+            { props.authContext.authenticated && !hasTags && showTagsTooltip &&
+              <Tooltip top={'110px'} right={'20px'} localStorageHideKey='hide-tagstooltips'>
+                ¡Registrá en tu perfil tu celular y temas de interés para las Alertas tempranas por WhatsApp!
+              </Tooltip>
+            }
+    
+        </SecondaryBar>
+      )
+    default:
+      return <div></div>
+  }
 
-    </SecondaryBar>
-  )
+  // if (width === "desktop") {
+
+  // } else {
+  //   return <div></div>
+  // }
+
 }
 
 export default WithUserContext(Navbar)

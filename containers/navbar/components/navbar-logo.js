@@ -11,15 +11,16 @@ justify-content:center;
 const Logo = styled.div`
   width: 220px;
   height: 50px;
-  background-image:url(${'/static/assets/colectiva.png'});
+  background-image:url(${'/static/assets/logoNavBar.png'});
   background-size: cover;
   background-position: center;  
   box-sizing: border-box;
   cursor:pointer;
-  @media (max-width: 760px) {
-    width: 67px;
-    height: 51px;
-    margin-top:auto;
+  @media (max-width: 975px) {
+    background-image:url(${'/static/assets/isoNavBar.png'});
+    width: 50px;
+    height: 50px;
+    left: 0
   }
 `
 

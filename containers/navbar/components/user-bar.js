@@ -4,10 +4,11 @@ import styled from 'styled-components'
 // import UserLink from '../../elements/user-link/component'
 
 const Bar = styled.div`
-display:flex;
-justify-content:flex-end;
-width:33%;
-margin-top:auto;
+  display:flex;
+  padding: 10px 20px;
+  justify-content:flex-end;
+  width:33%;
+  margin-top:auto;
 `
 
 const UserBar = ({ children }) => (
