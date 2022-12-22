@@ -3,14 +3,16 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ParticipateItem = styled.div`
-  width: 33%;
-  height: 200px;
+  width: 30%;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   align-items:center;
+  background: #FFFFFF;
   box-sizing: border-box;
-  @media (max-width: 1060px) {
+  box-shadow: 0px 3.01603px 7.54007px rgba(0, 0, 0, 0.25);
+  border-radius: 3.77003px;  
+  @media (max-width: 1160px) {
     width: 100%;
     margin-left: auto;
     margin-right: auto;

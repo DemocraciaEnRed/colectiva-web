@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const ParticipateP = styled.p`
   width: 270px;
-  height: 189px;
+  margin-bottom: 50px;
   font-family:var(--alter-regular);
   font-size: 1.6rem;
   font-weight: normal;
