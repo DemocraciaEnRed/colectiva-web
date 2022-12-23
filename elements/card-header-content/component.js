@@ -43,7 +43,7 @@ const Title = styled.div`
   font-size:2.7rem;
   line-height: 2.8rem;
   word-break: break-word;
-  color:#4C4C4E;
+  color:#000;
   text-align:left;
   font-family: var(--bold);
   padding-bottom:1rem;

@@ -21,12 +21,34 @@ const ProjectTagsContainer = styled.div`
   }
 
 `
-export const ProjectTag = styled.span`
-  font-size: 15px;
-  background-color: #eee;
-  padding: 8px 15px;
-  margin-bottom: 5px;
+const ProjectTag = styled.div`
+background:#000;
+color: #fff;
+border-radius:5px;
+font-weight: 600;
+padding:4px 8px 4px ${(props) => props.hasImage ? '15px' : '8px'};
+margin-left: ${(props) => props.hasImage ? '-10px' : 0};
+font-size:12px
+text-align: center;
+text-transform: uppercase;
+`
+
+const ProjectTagImg = styled.img`
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  z-index: 1;
+`
+
+const ProjectTagContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-right: 5px;
+  margin-top: 3px;
+  margin-bottom:3px;
 `
 
 
@@ -36,28 +58,63 @@ class ProjectTags extends Component {
   }
 
   state = {
-    allTags: []
+    allTags: [],
+    projectTags: []
   }
 
   async componentDidMount() {
-    this.setState({ allTags: await this.props.fetchDocumentTags() })
+    const allTags = await this.props.fetchDocumentTags()
+
+    let tagsWithImage = [
+      'crisis-climatica',
+      'derecho-sexual',
+      'paz-seguridad',
+      'reduccion-desigualdad',
+      'violencia-genero'
+    ]
+    const projectTags = this.props.project.currentVersion.content.tags || []
+    if (projectTags && projectTags.length > 0) {
+      const projectTagsObject = projectTags.map((tag) => {
+        console.log(tag)
+        console.log(allTags)
+        const tagValue = allTags.find((tagOfList) => tagOfList._id === tag)
+        return {
+          label: tagValue.name,
+          key: tagValue.key,
+          hasImage: tagsWithImage.includes(tagValue.key)
+        }
+      })
+      this.setState({
+        allTags,
+        projectTags: projectTagsObject
+      })
+    }
   }
 
   render() {
     const { project } = this.props
-    const { allTags } = this.state
-    const projectTags = project.currentVersion.content.tags || []
+    const { allTags, projectTags } = this.state
+
+    let tagsWithImage = [
+      'crisis-climatica',
+      'derecho-sexual',
+      'paz-seguridad',
+      'reduccion-desigualdad',
+      'violencia-genero'
+    ]
+
     return (
       <ProjectTagsContainer>
         { allTags.length > 0 && projectTags.length > 0 &&
           <ArticlesContext.Consumer>
             {
               ({ isAuthor, editMode, setYoutubeId, editedYoutubeId, newYoutubeId, setNewFields }) => (
-                projectTags.map(tagId =>
-                  <ProjectTag key={tagId}>
-                    { allTags.find(documentTag => documentTag._id == tagId).name }
-                  </ProjectTag>
-                )
+                projectTags.map((tag, i) => (
+                  <ProjectTagContainer>
+                    { tag.hasImage && <ProjectTagImg src={`/static/assets/tags/${tag.key}.png`} />}
+                    <ProjectTag key={i} hasImage={tag.hasImage}> {tag.label} </ProjectTag>
+                  </ProjectTagContainer>
+                )) 
               )
             }
           </ArticlesContext.Consumer>
