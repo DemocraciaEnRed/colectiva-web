@@ -834,6 +834,8 @@ class ProjectFields extends Component {
     title: null,
     authorFullname: null,
     authorRole: null,
+    authorAvatar: null,
+    authorBio: null,
     status: null,
     closingDate: null,
     imageCover: null,
@@ -853,6 +855,8 @@ class ProjectFields extends Component {
       title,
       authorFullname,
       authorRole,
+      authorAvatar,
+      authorBio,
       status,
       closingDate,
       imageCover,
@@ -868,6 +872,8 @@ class ProjectFields extends Component {
       title,
       authorFullname: authorFullname || null,
       authorRole: authorRole || null,
+      authorAvatar: authorAvatar || null,
+      authorBio: authorBio || null,
       status: status || null,
       imageCover,
       youtubeId,
@@ -899,6 +905,8 @@ class ProjectFields extends Component {
       title: this.state.title,
       authorFullname: this.state.authorFullname,
       authorRole: this.state.authorRole,
+      authorAvatar: this.state.authorAvatar || null,
+      authorBio: this.state.authorBio,
       status: this.state.status,
       imageCover: this.state.imageCover,
       closingDate: new Date(this.state.closingDate).toISOString(),
@@ -1002,6 +1010,8 @@ class ProjectFields extends Component {
             name='authorFullname'
             onChange={this.handleInputChange}
             placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
+            <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
+
         </ProfileLabel>
         <ProfileLabel>
           Cargo de la autora o el autor:
@@ -1011,6 +1021,27 @@ class ProjectFields extends Component {
             name='authorRole'
             onChange={this.handleInputChange}
             placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
+            <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
+
+        </ProfileLabel>
+        <ProfileLabel>
+          (Opcional) URL para el avatar de la autora o autor:
+          <InputField
+            type='text'
+            value={this.state.authorAvatar}
+            name='authorAvatar'
+            onChange={this.handleInputChange}
+            placeholder='(OPCIONAL) Nota: Debe ser una URL valida' />
+        </ProfileLabel>
+        <ProfileLabel>
+          Bio de la autora o autor:
+          <TextareaField
+            value={this.state.authorBio}
+            name='authorBio'
+            onChange={this.handleInputChange}
+            placeholder='Escriba aquí el texto que será la bio de la autora o autor' />
+            <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
+
         </ProfileLabel>
         <ProfileLabel>
           Estado del proyecto:

@@ -48,6 +48,7 @@ const CardHeader = ({ project, published }) => (
       status={project.currentVersion.content && project.currentVersion.content.status}
       name={project.currentVersion.content && project.currentVersion.content.authorFullname ? project.currentVersion.content.authorFullname : project.author.fullname}
       role={project.currentVersion.content && project.currentVersion.content.authorRole ? project.currentVersion.content.authorRole : project.author.role}
+      avatarUrl={project.currentVersion.content && project.currentVersion.content.authorAvatar ? project.currentVersion.content.authorAvatar : null}
       hasImage={!!project.currentVersion.content.imageCover}
       closingDate={project.currentVersion.content.closingDate}
       // hasImage={project.currentVersion.content.tags && project.currentVersion.content.tags.length > 0}

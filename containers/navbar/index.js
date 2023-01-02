@@ -20,7 +20,7 @@ const SecondaryBar = styled.div`
   height:6rem;
   display: flex;
   padding: 2rem 0%;
-  z-index:1;
+  z-index:10;
   position: fixed!important;
   background: #fff;
   transition: height 0.4s ease-out;

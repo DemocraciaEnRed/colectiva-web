@@ -7,6 +7,7 @@ import ModeButton from '../../elements/mode-button/component'
 import ModeBarLinkButton from '../../elements/mode-bar-link-button/component'
 import ProjectHeader from '../../components/project-header/component'
 import ProjectBody from '../../components/project-body/component'
+import ProjectAuthorBio from '../../components/project-author-bio/component'
 import ProjectComments from '../../components/project-comments/component'
 import UserEditor from '../../components/user-editor/component'
 import Versiones from '../versiones/component'
@@ -94,6 +95,7 @@ export default class extends Component {
             <Fragment>
               <ProjectBody project={project.document} />
               <ProjectTags project={project.document} />
+              <ProjectAuthorBio project={project.document} />
               <ProjectComments project={project.document} />
             </Fragment>
           }

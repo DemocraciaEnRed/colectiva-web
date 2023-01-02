@@ -36,6 +36,20 @@ const Avatar = styled.div`
     margin-bottom: -20px;
   }
 `
+const AvatarByUrl = styled.div`
+  width: ${(props) => props.projectView ? `50px;` : '45px'};
+  min-width: ${(props) => props.projectView ? `50px;` : '45px'};
+  height: ${(props) => props.projectView ? `50px;` : '45px'};
+  border-radius:50%;
+  background-image: url('${(props) => props.src}');
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 1px solid #CACACA;
+  @media (max-width:700px){
+    margin-bottom: -20px;
+  }
+`
 const Name = styled.div`
 font-size: 20px;
 line-height: 26px;
@@ -76,10 +90,12 @@ justify-content:space-between;
 const IconWrapper = styled.div`
   padding-right:.5rem;`
 
-const UserAvatar = ({ projectView, userId, name, role, party, badge }) => (
+const UserAvatar = ({ projectView, userId, name, role, party, badge, avatarUrl }) => (
   <Wrapper projectView={projectView}>
     <Link href={{ pathname: '/userprofile', query: { id: userId } }}>
-      <Avatar projectView={projectView} userId={userId} />
+      {
+        avatarUrl ? <AvatarByUrl src={avatarUrl} /> : <Avatar projectView={projectView} userId={userId} />
+      }
     </Link>
     <TextWrapper>
       <Link href={{ pathname: '/userprofile', query: { id: userId } }}>
@@ -100,7 +116,8 @@ UserAvatar.propTypes = {
   party: PropTypes.string,
   authorId: PropTypes.string,
   badge: PropTypes.string,
-  projectView: PropTypes.bool
+  projectView: PropTypes.bool,
+  avatarUrl: PropTypes.string,
 }
 
 export default UserAvatar

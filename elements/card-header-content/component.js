@@ -79,7 +79,7 @@ const formatDate = (createdAt) => {
   return (createdAt.substring(0, 10).split('-').reverse().join('/'))
 }
 
-const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, status, role, party, closingDate }) => (
+const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, status, role, avatarUrl, party, closingDate }) => (
   <Wrapper hasImage={hasImage}>
     { status && <StatusTag hasImage={hasImage}>{status}</StatusTag> }
     <UserAvatar
@@ -87,6 +87,7 @@ const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, 
       name={name}
       party={false}
       role={role}
+      avatarUrl={avatarUrl}
       authorId={authorId} />
     <HrWrapper />
     <TextWrapper>
@@ -105,6 +106,9 @@ CardHeaderContent.propTypes = {
   title: PropTypes.string.isRequired,
   tagTitle: PropTypes.string,
   userId: PropTypes.string,
+  role: PropTypes.string,
+  avatarUrl: PropTypes.string,
+  status: PropTypes.string,
   name: PropTypes.string.isRequired,
   party: PropTypes.string.isRequired,
   authorId: PropTypes.string.isRequired
