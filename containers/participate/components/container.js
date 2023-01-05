@@ -11,7 +11,7 @@ const StyledParticipateContainer = styled.div`
   padding-right: 15%;
   justify-content: space-between;
   margin-bottom: 10rem;
-  @media (max-width: 1024px) {
+  @media (max-width: 1180px) {
     flex-direction: column;
   }
 `

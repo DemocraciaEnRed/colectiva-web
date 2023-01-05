@@ -19,7 +19,7 @@ import WithUserContext from '../../components/with-user-context/component'
 const SecondaryBar = styled.div`
   height:6rem;
   display: flex;
-  padding: 2rem 0%;
+  padding: 1.3rem 0%;
   z-index:10;
   position: fixed!important;
   background: #fff;
