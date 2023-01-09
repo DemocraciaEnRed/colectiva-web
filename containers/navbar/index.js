@@ -50,7 +50,10 @@ const SecondaryBar = styled.div`
 
 
 const MobileMenu = styled.a`
-    padding: 25px 0px;
+    // padding: 25px 0px;
+    position: absolute;
+    margin-top: 10px;
+    right: 30%;
     width: 40px;
     height: 35px;
     background-image:url(${'/static/assets/mobileMenu.svg'});
@@ -225,7 +228,7 @@ const Navbar = (props) => {
             mobileMenuOn && <MobileNavbarDisplay >
                 <ul>
                 {links.map((li, i) => {
-                    return <li style={{'border-bottom': '1px;'}}>
+                    return <li style={{'border-bottom': '1px solid black;', 'padding-left': '15px'}}>
                       <NavbarLink
                       key={i}
                       name={li.name}
