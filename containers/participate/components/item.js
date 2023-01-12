@@ -6,13 +6,12 @@ const ParticipateItem = styled.div`
   width: 30%;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
   align-items:center;
   background: #FFFFFF;
   box-sizing: border-box;
   box-shadow: 0px 3.01603px 7.54007px rgba(0, 0, 0, 0.25);
   border-radius: 3.77003px;  
-  min-height: 450px;
+  min-height: 420px;
   @media (max-width: 1180px) {
     width: 100%;
     margin-left: auto;
