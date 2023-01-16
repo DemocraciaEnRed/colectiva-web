@@ -9,8 +9,8 @@ justify-content:center;
 `
 
 const Logo = styled.div`
-  width: 220px;
-  height: 50px;
+  width: 300px;
+  height: 60px;
   background-image:url(${'/static/assets/logoNavBar.png'});
   background-size: cover;
   background-position: center;  

@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 const StyledButton = styled.a`
   min-width: 150px;
   max-width: 300px;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 2rem;
   border-style: none;
   font-family: var(--bold);
   background: #FB5735;

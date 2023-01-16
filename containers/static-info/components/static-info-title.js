@@ -7,7 +7,6 @@ const StaticInfoTitle = styled.h1`
     margin-bottom:30px;
   }
   font-family: var(--bold);
-  line-height: 1.18rem;
   color: var(--orange);
   margin-top:23px;
   margin-bottom: 80px;

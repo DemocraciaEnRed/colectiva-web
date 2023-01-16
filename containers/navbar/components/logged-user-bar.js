@@ -4,11 +4,11 @@ import styled from 'styled-components'
 // import UserLink from '../../elements/user-link/component'
 
 const StyledBar = styled.div`
+position: absolute;
 display:flex;
+right: 8%;
 justify-content:flex-end;
-width:33%;
-margin-top:auto;
-padding-bottom:.5rem;
+margin-top:15px;
 `
 
 const LoggedUserBar = ({ children }) => (

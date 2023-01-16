@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ParticipateTextbox = styled.div`
-  min-height: 100px;
+  min-height: 80px;
   display:flex;
   flex-direction:column;
   justify-content:center;

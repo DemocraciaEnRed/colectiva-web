@@ -65,6 +65,8 @@ const ProjectBody = ({ project }) => (
                 title={project.currentVersion.content.title}
                 authorFullname={project.currentVersion.content.authorFullname}
                 authorRole={project.currentVersion.content.authorRole}
+                authorAvatar={project.currentVersion.content.authorAvatar}
+                authorBio={project.currentVersion.content.authorBio}
                 status={project.currentVersion.content.status}
                 closingDate={project.currentVersion.content.closingDate}
                 imageCover={project.currentVersion.content.imageCover}

@@ -3,14 +3,13 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const ParticipateP = styled.p`
-  width: 270px;
+  width: 220px;
   margin-bottom: 50px;
   font-family:var(--alter-regular);
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.2;
   letter-spacing: normal;
   color: #4a5d68;
 `

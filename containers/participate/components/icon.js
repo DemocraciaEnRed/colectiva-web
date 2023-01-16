@@ -8,11 +8,12 @@ const ParticipateIcon = styled.div`
   flex-direction:column;
   justify-content:center;
   box-sizing: border-box;
+  margin-top: 2rem;
 `
 
 const StyledIcon = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background-image: url('${(props) => props.img}');
   background-size: cover;
   background-position: center;
