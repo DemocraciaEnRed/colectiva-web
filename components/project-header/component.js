@@ -88,7 +88,7 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
     <ProjectHeaderWrapper>
       <InfoHeader>
         <TopBarWrapper>
-          {/* <SharerSocial id={project._id} /> */}
+          <SharerSocial id={project._id} />
           <UserAvatar
             projectView
             authorId={project.author._id}
