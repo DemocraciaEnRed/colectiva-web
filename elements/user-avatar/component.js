@@ -30,7 +30,7 @@ const Avatar = styled.div`
   background-image: url('${(props) => props.userId ? `${API_URL}/api/v1/users/${props.userId}/avatar` : '/static/assets/userdefault.png'}');
   background-size: cover;
   background-position: center;
-  cursor: pointer;
+  // cursor: pointer;
   border: 1px solid #CACACA;
   @media (max-width:700px){
     margin-bottom: -20px;
@@ -44,7 +44,7 @@ const AvatarByUrl = styled.div`
   background-image: url('${(props) => props.src}');
   background-size: cover;
   background-position: center;
-  cursor: pointer;
+  // cursor: pointer;
   border: 1px solid #CACACA;
   @media (max-width:700px){
     margin-bottom: -20px;
@@ -55,7 +55,7 @@ font-size: 20px;
 line-height: 26px;
 font-family:var(--bold);
 color: var(--blue);
-cursor: pointer;
+// cursor: pointer;
 min-width:100px;
 `
 
@@ -92,15 +92,15 @@ const IconWrapper = styled.div`
 
 const UserAvatar = ({ projectView, userId, name, role, party, badge, avatarUrl }) => (
   <Wrapper projectView={projectView}>
-    <Link href={{ pathname: '/userprofile', query: { id: userId } }}>
-      {
-        avatarUrl ? <AvatarByUrl src={avatarUrl} /> : <Avatar projectView={projectView} userId={userId} />
-      }
-    </Link>
+    {/* <Link href={{ pathname: '/userprofile', query: { id: userId } }}> */}
+    {
+      avatarUrl ? <AvatarByUrl src={avatarUrl} /> : <Avatar projectView={projectView} userId={userId} />
+    }
+    {/* </Link> */}
     <TextWrapper>
-      <Link href={{ pathname: '/userprofile', query: { id: userId } }}>
-        <Name>{name}</Name>
-      </Link>
+      {/* <Link href={{ pathname: '/userprofile', query: { id: userId } }}> */}
+      <Name>{name}</Name>
+      {/* </Link> */}
       {role ? <SubName>{role}</SubName> : null}
       <Party>
         {badge && <IconWrapper><Icon icon={checkCircle} /></IconWrapper>}
