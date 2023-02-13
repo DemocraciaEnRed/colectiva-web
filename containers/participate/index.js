@@ -22,15 +22,38 @@ const StyledParticipateSection = styled.section`
   flex-direction: column;
   align-items: center;
   box-sizing:border-box;
-  background-image: url(${'/static/assets/banner-participa.png'});
-  background-size: cover;
-  background-position: center;
+  background-color: #2857e6;
+  position: relative;
+  // background-image: url(${'/static/assets/banner-participa.png'});
+  // background-size: cover;
+  // background-position: center;
+`
+
+const LeftGirl = styled.img`
+  position: absolute;
+  left: 3%;
+  bottom: 0;
+  max-width: 300px;
+  @media (max-width: 1180px) {
+    display: none;
+  }
+`
+const RightGirl = styled.img`
+  position: absolute;
+  right: 3%;
+  bottom: 0;
+  max-width: 300px;
+  @media (max-width: 1180px) {
+    display: none;
+  }
 `
 
 const Participate = (props) => {
   if (!props.authContext) return null
   return (
     <StyledParticipateSection id='participate'>
+      <LeftGirl src="/static/assets/banner-participa-left.png" />
+      <RightGirl src="/static/assets/banner-participa-right.png"/>
       <ParticipateTitle>¿Cómo participar?</ParticipateTitle>
       <ParticipateContainer>
         <ParticipateItem>
