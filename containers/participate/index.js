@@ -64,7 +64,7 @@ const Participate = (props) => {
         </ParticipateItem>
         <ParticipateItem>
           <ParticipateIcon img={'/static/assets/pencil-icon.svg'} />
-          <ParticipateTextbox action={'Co-Contruye'} />
+          <ParticipateTextbox action={'Co-Construye'} />
           <ParticipateP text={'Participa apoyando y comentando las iniciativas activas.'} />
           <ParticipateAction text={'Ver las Iniciativas'} action={"#projects"} />
         </ParticipateItem>
