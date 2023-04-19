@@ -100,6 +100,11 @@ const links = [
     link: '/'
   },  
   {
+    name: 'Directorio',
+    hash: '#__next',
+    link: '/directorio'
+  },  
+  {
     name: 'El Congreso',
     hash: '#__next',
     link: '/info?section=congreso-y-senado'
