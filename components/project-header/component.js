@@ -108,8 +108,10 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
             <TogglePublish project={project} isPublished={isPublished} setPublish={setPublish} togglePublish={togglePublish} />
           }
         </TopBarWrapper>
-        <ProjectStatus closed={project.closed} />&nbsp;
-        <ProjectStatusCustom status={project.currentVersion.content.status} />
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+          <ProjectStatusCustom status={project.currentVersion.content.status} />
+          <ProjectStatus closed={project.closed} />&nbsp;
+        </div>
         <ProjectTitle>{project.currentVersion.content.title}</ProjectTitle>
         {/* <ProjectSubtitle
           project={project._id}

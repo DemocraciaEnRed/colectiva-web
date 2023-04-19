@@ -786,6 +786,24 @@ const InputField = styled.input`
     background-color: #f7f7f7
   }
 `
+
+const SelectField = styled.select`
+  width: 100%;
+  height: 50px;
+  border: solid 1px #dae1e7;
+  background-color: #ffffff;
+  font-size: 16px;
+  line-height: 1rem;
+  color: #203340;
+  margin-top: 10px;
+  padding: 11px 15px;
+  &:read-only,
+  // &:disabled {
+  //   cursor: not-allowed;
+  //   background-color: #f7f7f7
+  // }
+`
+
 const TextareaField = styled.textarea`
   width: 100%;
   min-height: 250px;
@@ -907,7 +925,7 @@ class ProjectFields extends Component {
       authorRole: this.state.authorRole,
       authorAvatar: this.state.authorAvatar || null,
       authorBio: this.state.authorBio,
-      status: this.state.status,
+      status: this.state.status === '' ? null : this.state.status,
       imageCover: this.state.imageCover,
       closingDate: new Date(this.state.closingDate).toISOString(),
       youtubeId: this.state.youtubeId,
@@ -1045,12 +1063,27 @@ class ProjectFields extends Component {
         </ProfileLabel>
         <ProfileLabel>
           Estado del proyecto:
-          <InputField
+          {/* <InputField
             type='text'
             value={this.state.status}
             name='status'
             onChange={this.handleInputChange}
-            placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
+            placeholder='Hacer uso correcto de mayúsculas y minúsculas' /> */}
+          <SelectField
+            value={this.state.status}
+            name='status'
+            onChange={this.handleInputChange}>
+            <option value=''>- Sin estado -</option>
+            <option value='1-en-construccion'>1. En construcción</option>
+            <option value='2-radicacion'>2. Radicación</option>
+            <option value='3-primer-debate'>3. Primer debate</option>
+            <option value='4-segundo-debate'>4. Segundo debate</option>
+            <option value='5-tercer-debate'>5. Tercer debate</option>
+            <option value='6-cuarto-debate'>6. Cuarto debate</option>
+            <option value='7-sancion-presidencial'>7. Sanción presidencial</option>
+            <option value='8-en-revision'>8. En revisión</option>
+            <option value='9-es-ley'>9. Es ley</option>
+          </SelectField>
         </ProfileLabel>
         <ProfileLabel>
           Ingrese la URL para la imagen de encabezado:

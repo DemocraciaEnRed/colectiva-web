@@ -8,8 +8,9 @@ const Wrapper = styled.div`
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  height:autos;
+  height:auto;
   padding:20px;
+  padding-top: ${(props) => props.hasStatusButNoImage ? '40px' : '20px'}
   box-sizing: border-box;
   @media (max-width:700px){
     width:100%;
@@ -24,18 +25,25 @@ color:#FB5735;
 padding-bottom:1rem;
 `
 
-const StatusTag = styled.div`
+// const StatusTag = styled.div`
+//   position: absolute;
+//   top: ${(props) => props.hasImage ? '86px' : '0px'};
+//   right: 0;
+//   font-size: 1.1rem;
+//   text-transform: uppercase;
+//   background-color: #ffff66;
+//   color: black;
+//   padding: 5px 5px 5px 15px;
+//   border-top-left-radius: 15px;
+//   border-bottom-left-radius: 15px;
+//   font-weight: 800;
+// `
+
+const StatusTagImage = styled.img`
   position: absolute;
-  top: ${(props) => props.hasImage ? '86px' : '0px'};
+  top: ${(props) => props.hasImage ? '80px' : '0x'};
   right: 0;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  background-color: #ffff66;
-  color: black;
-  padding: 5px 5px 5px 15px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  font-weight: 800;
+  height: 33px;
 `
 
 const Title = styled.div`
@@ -80,8 +88,9 @@ const formatDate = (createdAt) => {
 }
 
 const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, status, role, avatarUrl, party, closingDate }) => (
-  <Wrapper hasImage={hasImage}>
-    { status && <StatusTag hasImage={hasImage}>{status}</StatusTag> }
+  <Wrapper hasImage={hasImage} hasStatusButNoImage={status && !hasImage}>
+    {/* { status && <StatusTag hasImage={hasImage}>{status}</StatusTag> } */}
+    { status && <StatusTagImage src={`/static/assets/states/${status}.svg`} hasImage={hasImage} /> }
     <UserAvatar
       userId={userId}
       name={name}
