@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 const StyledLogo = styled.div`
-width:33%;
-display:flex;
-justify-content:center;
+width: 33%;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 const Logo = styled.div`
@@ -24,11 +25,22 @@ const Logo = styled.div`
   }
 `
 
+const LogoImage = styled.img`
+  width: auto;
+  height: 60px;
+  cursor:pointer;
+  @media (max-width: 975px) {
+    width: auto;
+    height: 35px;
+  }
+`
+
 const NavbarLogo = () => (
 
   <StyledLogo>
     <Link href='/'>
-      <Logo />
+      {/* <Logo /> */}
+      <LogoImage src="/static/assets/logoNavBar.png" />
     </Link>
   </StyledLogo>
 

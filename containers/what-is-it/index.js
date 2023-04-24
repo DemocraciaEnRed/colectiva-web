@@ -48,7 +48,7 @@ const WhatIsIt = (props) => {
   if (!props.authContext) return null
   return (
     <StyledWhatIsItSection id='WhatIsIt'>
-      <WhatIsItTitle>¿Qué es colectiva?</WhatIsItTitle>
+      <WhatIsItTitle>¿Qué es Vamos en Colectivo?</WhatIsItTitle>
         <StyledResponsiveVideo>
           <StyledIframe width="560" height="315" src="https://www.youtube.com/embed/7gChyZFBqes" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
         </StyledResponsiveVideo>      
