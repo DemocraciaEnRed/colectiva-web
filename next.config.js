@@ -10,6 +10,8 @@ module.exports = {
     RESOURCE: process.env.RESOURCE,
     PUBLIC_CLIENT: process.env.PUBLIC_CLIENT,
     CONFIDENTIAL_PORT: process.env.CONFIDENTIAL_PORT,
-    API_KEY: process.env.API_KEY
+    API_KEY: process.env.API_KEY,
+    GOOGLE_API_SHEET_KEY: process.env.GOOGLE_API_SHEET_KEY,
+    GOOGLE_SHEET_ID: process.env.GOOGLE_SHEET_ID
   }
 }

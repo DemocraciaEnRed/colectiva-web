@@ -12,7 +12,7 @@ export default () => (
     <StaticInfoTitle>Sobre el sitio</StaticInfoTitle>
     <StyledDiv>
       <StaticInfoP>
-        El Portal de Colectiva está desarrollado por Democracia en Red y coordinado por Organización Artemisas
+        El Portal de VAMOS EN COLECTIVO está desarrollado por Democracia en Red y coordinado por Organización Artemisas
       </StaticInfoP>
     </StyledDiv>
   </section>

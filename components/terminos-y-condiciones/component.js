@@ -63,7 +63,7 @@ export default () => (
             Estimado/a usuario/a:
           </StaticInfoP>
           <StaticInfoP>
-            COLECTIVA es un sitio web que promueve la democracia deliberativa y participativa, para la creación y generación de espacios de colaboración para co-diseñar y co-producir valor público. 
+            VAMOS EN COLECTIVO es un sitio web que promueve la democracia deliberativa y participativa, para la creación y generación de espacios de colaboración para co-diseñar y co-producir valor público. 
           </StaticInfoP>
           <StaticInfoP>
             Al acceder y brindar sus datos personales, los/as usuarios/as aceptan los Términos y Condiciones que regulan el uso de esta plataforma, de conformidad con lo establecido en la Ley Estatutaria 1581 de 2012 y su Decreto Reglamentario 1377 de 2013. 
@@ -210,7 +210,7 @@ export default () => (
             La Organización Artemisas entiende por protección de datos todas aquellas medidas físicas, técnicas y jurídicas necesarias para garantizar que los datos personales tratados se sometan estrictamente a las finalidades determinadas para poder crear espacios de construcción legislativa entre ciudadanía y representantes populares
           </StaticInfoP>
           <StaticInfoBold>
-            1. ¿Qué información personal almacena la Fundación Artemisas a través de COLECTIVA?    
+            1. ¿Qué información personal almacena la Fundación Artemisas a través de VAMOS EN COLECTIVO?    
           </StaticInfoBold>
           <StaticInfoP>
             Para registrar un/a usuario/a y poder interactuar con la plataforma se pide: 

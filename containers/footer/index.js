@@ -30,7 +30,7 @@ const FooterImage = styled.img`
 
 const Footer = () => (
   <FooterWrapper>
-    <FooterImage src="/static/assets/LogoBannerFooter.png" alt="Colectiva" />
+    <FooterImage src="/static/assets/LogoBannerFooter.png" alt="Vamos en colectivo" />
     <SocialBar>
       <SocialIcon
         img={'/static/assets/facebook-icon.svg'}

@@ -15,10 +15,10 @@ export default () => (
     <StaticInfoTitle>Acerca de</StaticInfoTitle>
     <StyledDiv>
       <StaticInfoBold>
-        ¿Qué es Colectiva?
+        ¿Qué es VAMOS EN COLECTIVO?
       </StaticInfoBold>
       <StaticInfoP>
-        Colectiva es la primera plataforma feminista en Latinoamérica para discutir, deliberar, construir y movilizarnos alrededor de las iniciativas que afectarán la vida de las niñas, jóvenes, mujeres y personas #LGBTIQ+ de nuestro país.
+        VAMOS EN COLECTIVO es la primera plataforma feminista en Latinoamérica para discutir, deliberar, construir y movilizarnos alrededor de las iniciativas que afectarán la vida de las niñas, jóvenes, mujeres y personas #LGBTIQ+ de nuestro país.
       </StaticInfoP>
 
     </StyledDiv>

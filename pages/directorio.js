@@ -13,6 +13,13 @@ import Footer from '../containers/footer'
 import DirectorioTable from '../components/directorio-table/component'
 import DirectorioCards from '../components/directorio-cards/component'
 
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig: {
+  GOOGLE_API_SHEET_KEY,
+  GOOGLE_SHEET_ID
+} } = getConfig()
+
 const StyledDirectorioContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -184,8 +191,8 @@ const LoadingFiller = styled.div`
 
 class Directorio extends Component {
   state = {
-    apiKey: `AIzaSyDKdSNeRBpbulCFEqjz7Mf9aulM7xaRAFg`,
-    googleSheetId: `10EHRPQQRcdwgCxAjIPcLm7G4PYEQWEYWDipnpETaaYs`,
+    apiKey: GOOGLE_API_SHEET_KEY,
+    googleSheetId: GOOGLE_SHEET_ID,
     loading: true,
     mode: 'cards',
     keys: {},
