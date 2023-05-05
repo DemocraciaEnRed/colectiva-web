@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import styled, { injectGlobal } from 'styled-components'
-import DatePicker from  "react-datepicker";
-import es from 'date-fns/locale/es';
+import fetch from 'isomorphic-unfetch'
+import getConfig from 'next/config'
+import DatePicker from 'react-datepicker'
+import es from 'date-fns/locale/es'
 import ProfileLabel from '../../elements/profile-label/component'
 import EditorTitle from '../../elements/editor-title/component'
 import WithDocumentTagsContext from '../../components/document-tags-context/component'
+import WithUserContext from '../../components/with-user-context/component'
 import ProfileTags from '../../elements/profile-tags/component'
+const { publicRuntimeConfig: { API_URL } } = getConfig()
 
 injectGlobal`
 //--------------------------------------
@@ -840,7 +844,7 @@ const EditField = styled.div`
 
 const TagsNotificationCheckboxDiv = styled.div`
   margin-top: 0.8em;
-  /*color: ${props => props.publishedMailSent ? '#666' : 'inherit'}*/
+  /*color: ${(props) => props.publishedMailSent ? '#666' : 'inherit'}*/
   & > input {
     position: relative;
     top: 2px;
@@ -861,6 +865,14 @@ class ProjectFields extends Component {
     customVideoId: null,
     youtubeURL: null,
     closure: null,
+    privateProject: null,
+    allowed: null,
+    allowedUsers: [],
+    searchedUsers: [],
+    inputSearchUser: '',
+    userSearchType: 'name',
+    loadingAllowedUsers: true,
+    loadingSearchUser: false,
     tags: [],
     allTags: [],
     tagsMaxReached: false,
@@ -868,7 +880,7 @@ class ProjectFields extends Component {
     publishedMailSent: null
   }
 
-  componentDidMount() {
+  componentDidMount () {
     let {
       title,
       authorFullname,
@@ -882,6 +894,8 @@ class ProjectFields extends Component {
       customVideoId,
       closure,
       tags,
+      privateProject,
+      allowed,
       sendTagsNotification,
       publishedMailSent
     } = this.props
@@ -900,13 +914,15 @@ class ProjectFields extends Component {
       closingDate: new Date(closingDate.split('T')[0].replace(/-/g, '\/')),
       closure: closure || null,
       tags: tags || [],
+      privateProject: privateProject === true ? 'true' : 'false',
+      allowed: allowed || [],
       sendTagsNotification,
       publishedMailSent
     }, () => {
       this.props.setNewFields(this.getBodyPayload())
-
-      this.props.fetchDocumentTags().then(documentTags => {
-        const parsedTags = documentTags.map(documentTag => ({ id: documentTag._id, text: documentTag.name }))
+      this.fetchAllowedUsers()
+      this.props.fetchDocumentTags().then((documentTags) => {
+        const parsedTags = documentTags.map((documentTag) => ({ id: documentTag._id, text: documentTag.name }))
         this.setState({
           allTags: parsedTags
         })
@@ -916,6 +932,102 @@ class ProjectFields extends Component {
     console.log(new Date(closingDate))
     console.log(new Date(Date.parse(closingDate)))
     console.log(closingDate)
+  }
+
+  fetchAllowedUsers = () => {
+    console.log('fetchAllowedUsers')
+    const { allowed } = this.state
+    if (allowed.length > 0) {
+      this.setState({
+        loadingAllowedUsers: true
+      })
+      fetch(`${API_URL}/api/v1/users/list?ids=${allowed.join(',')}&limit=20`, {
+        headers: {
+          Authorization: `Bearer ${this.props.authContext.keycloak.token}`,
+          'Content-Type': 'application/json'
+        },
+        method: 'GET'
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          this.setState({
+            allowedUsers: res,
+            loadingAllowedUsers: false
+          })
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    } else {
+      this.setState({
+        allowedUsers: [],
+        loadingAllowedUsers: false
+      })
+      console.log('no allowed users')
+    }
+  }
+
+  searchUsers = (type) => {
+    console.log('searchUsers')
+    const { inputSearchUser } = this.state
+    if (inputSearchUser.length > 3) {
+      this.setState({
+        usersSearch: [],
+        loadingSearchUser: true
+      })
+      let url = null
+      if (type === 'email') {
+        url = `${API_URL}/api/v1/users/search?email=${inputSearchUser}&limit=20`
+      } else {
+        url = `${API_URL}/api/v1/users/search?name=${inputSearchUser}&limit=20`
+      }
+      fetch(url, {
+        headers: {
+          Authorization: `Bearer ${this.props.authContext.keycloak.token}`,
+          'Content-Type': 'application/json'
+        },
+        method: 'GET'
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          this.setState({
+            searchedUsers: res,
+            loadingSearchUser: false
+          })
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    } else {
+      this.setState({
+        searchedUsers: [],
+        loadingSearchUser: false
+      })
+      console.log('no users found')
+    }
+  }
+
+  addUserToAllowedUsers = (user) => {
+    console.log('addUsersToAllowedUsers')
+    const { allowedUsers } = this.state
+    // check if user is already in allowedUsers
+    if (allowedUsers.filter((allowedUser) => allowedUser._id === user._id).length === 0) {
+      this.setState({
+        allowedUsers: [...allowedUsers, user]
+      }, () => {
+        this.props.setNewFields(this.getBodyPayload())
+      })
+    }
+  }
+
+  removeUserFromAllowedUsers = (user) => {
+    console.log('removeUserFromAllowedUsers')
+    const { allowedUsers } = this.state
+    this.setState({
+      allowedUsers: allowedUsers.filter((allowedUser) => allowedUser._id !== user._id)
+    }, () => {
+      this.props.setNewFields(this.getBodyPayload())
+    })
   }
 
   getBodyPayload = () => {
@@ -931,6 +1043,8 @@ class ProjectFields extends Component {
       youtubeId: this.state.youtubeId,
       customVideoId: this.state.customVideoId,
       closure: this.state.closure,
+      private: this.state.privateProject === 'true',
+      allowed: this.state.allowedUsers.map((user) => user._id),
       tags: this.state.tags,
       sendTagsNotification: this.state.sendTagsNotification
     }
@@ -977,36 +1091,27 @@ class ProjectFields extends Component {
   }
 
   handleTagClick = (tag) => {
-    if (this.state.tagsMaxReached)
-      this.setState({tagsMaxReached: false})
+    if (this.state.tagsMaxReached) { this.setState({ tagsMaxReached: false }) }
 
     const clickedTagId = tag._id
     const callback = () => this.props.setNewFields(this.getBodyPayload())
-    if (this.state.tags.includes(clickedTagId))
-      this.setState((prevState) => ({tags: prevState.tags.filter(tagId => tagId != clickedTagId)}), callback)
-    else {
-      if (this.state.tags.length == 5)
-        this.setState({tagsMaxReached: true})
-      else
-        this.setState((prevState) => ({tags: prevState.tags.concat(clickedTagId)}), callback)
+    if (this.state.tags.includes(clickedTagId)) { this.setState((prevState) => ({ tags: prevState.tags.filter((tagId) => tagId != clickedTagId) }), callback) } else {
+      if (this.state.tags.length == 5) { this.setState({ tagsMaxReached: true }) } else { this.setState((prevState) => ({ tags: prevState.tags.concat(clickedTagId) }), callback) }
     }
   }
 
   toggleTagsNotificationCheckbox = () => {
     this.setState(({ sendTagsNotification }) => (
       {
-        sendTagsNotification: !sendTagsNotification,
+        sendTagsNotification: !sendTagsNotification
       }
-    ), () => this.props.setNewFields(this.getBodyPayload()));
+    ), () => this.props.setNewFields(this.getBodyPayload()))
   }
 
-  render() {
+  render () {
     const tagsLoaded = this.state.allTags.length > 0
-    let tags;
-    if (!tagsLoaded)
-      tags = []
-    else
-      tags = this.state.tags.map(tagId => this.state.allTags.find(tag => tag.id == tagId)).filter(t => t != undefined)
+    let tags
+    if (!tagsLoaded) { tags = [] } else { tags = this.state.tags.map((tagId) => this.state.allTags.find((tag) => tag.id == tagId)).filter((t) => t != undefined) }
 
     return (
       <EditField>
@@ -1028,7 +1133,7 @@ class ProjectFields extends Component {
             name='authorFullname'
             onChange={this.handleInputChange}
             placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
-            <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
+          <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
 
         </ProfileLabel>
         <ProfileLabel>
@@ -1039,7 +1144,7 @@ class ProjectFields extends Component {
             name='authorRole'
             onChange={this.handleInputChange}
             placeholder='Hacer uso correcto de mayúsculas y minúsculas' />
-            <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
+          <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
 
         </ProfileLabel>
         <ProfileLabel>
@@ -1058,9 +1163,94 @@ class ProjectFields extends Component {
             name='authorBio'
             onChange={this.handleInputChange}
             placeholder='Escriba aquí el texto que será la bio de la autora o autor' />
-            <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
+          <SpanOk><b><u>REQUERIDO</u></b> para que aparezca el cuadro de Bio de la autora/autor del proyecto.</SpanOk>
 
         </ProfileLabel>
+        <ProfileLabel>
+          Privacidad del proyecto:
+          <SelectField
+            value={this.state.privateProject}
+            name='privateProject'
+            onChange={this.handleInputChange}>
+            <option value='false'>Público (Todos pueden ver y participar)</option>
+            <option value='true'>Privado (Seleccione que usuarios participan)</option>
+          </SelectField>
+        </ProfileLabel>
+        {
+          this.state.privateProject == 'true' && (
+            <div style={{ border: '1px solid #cacaca', margin: '3px 0', padding: '0 15px', paddingBottom: '15px' }}>
+              <ProfileLabel>
+                <div><b>PROYECTO PRIVADO //</b> Buscar usuario por nombre o email:</div>
+                <div style={{fontSize: '12px', margin: '4px 0px'}}><i>Nota: Se limitan hasta 20 resultados.</i></div>
+                <InputField
+                  type='text'
+                  value={this.state.inputSearchUser}
+                  name='inputSearchUser'
+                  onChange={this.handleInputChange}
+                  placeholder='Ingrese aqui un nombre, apellido o el comienzo de un email' />
+                <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', margin: '3px 0px' }}>
+                  <div onClick={() => this.searchUsers('name')} style={{ border: '1px solid #cacaca', width: '100%', marginRight: '2px', padding: '4px', borderRadius: '0', textAlign: 'center', cursor: 'pointer', backgroundColor: '#f5f5f5' }}>
+                  Buscar por NOMBRE o APELLIDO</div>
+                  <div onClick={() => this.searchUsers('email')} style={{ border: '1px solid #cacaca', width: '100%', marginLeft: '2px', padding: '4px', borderRadius: '0', textAlign: 'center', cursor: 'pointer', backgroundColor: '#f5f5f5' }}>
+                  Buscar por EMAIL</div>
+                </div>
+              </ProfileLabel>
+              {
+                this.state.loadingSearchUser && (
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#f5f5f5', padding: '10px', borderRadius: '5px' }}>
+                    <div>Cargando...</div>
+                  </div>
+                )
+              }
+              {
+                !this.state.loadingSearchUser && this.state.searchedUsers.length == 0 && (
+                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#f5f5f5', padding: '10px', borderRadius: '5px' }}>
+                    <div>No se encontraron usuarios</div>
+                  </div>
+                )
+              }
+              {
+                !this.state.loadingSearchUser && this.state.searchedUsers.length > 0 && (
+                  <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {this.state.searchedUsers.map((user) => (
+                      <div key={`user-to-add-with-id-${user._id}`} style={{ display: 'flex', justifyContent: 'flex-start', backgroundColor: '#FFF', alignItems: 'center', margin: '3px 3px', border: '1px solid #cacaca', borderRadius: '5px', padding: '7px 14px' }}>
+                        <img src={user.avatar} style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '5px' }} />
+                        <div style={{ lineHeight: '1' }}><b>{user.fullname}</b><br /><span style={{ fontSize: '11px', lineHeight: '1' }}><i>{user.email}</i></span></div>
+                        <div onClick={() => this.addUserToAllowedUsers(user)} style={{ border: '1px solid green', color: 'green', padding: '1px 10px', fontSize: '12px', borderRadius: '5px', marginLeft: '10px', cursor: 'pointer'}}>Añadir</div>
+                      </div>
+                    ))}
+                  </div>
+                )
+              }  
+            </div>
+          )
+        }
+        {
+          this.state.privateProject == 'true' && (
+            <div style={{ border: '1px solid #cacaca', margin: '3px 0', padding: '0 15px' }}>
+              <ProfileLabel>
+                <div sytle={{ marginBottom: '7px' }}><b>PROYECTO PRIVADO //</b> Usuarios habilitados para participar:</div>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', marginTop: '10px' }}>
+                  {this.state.allowedUsers.map((user) => (
+                    <div key={`user-with-id-${user._id}`} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', margin: '3px 3px', border: '1px solid #cacaca', borderRadius: '5px', padding: '7px 14px' }}>
+                      <img src={user.avatar} style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }} />
+                      <div style={{ lineHeight: '1' }}><b>{user.fullname}</b><br /><span style={{ fontSize: '11px', lineHeight: '1' }}><i>{user.email}</i></span></div>
+                      <div onClick={() => this.removeUserFromAllowedUsers(user)} style={{ border: '1px solid red', color: 'red', padding: '1px 10px', fontSize: '12px', borderRadius: '5px', marginLeft: '10px', cursor: 'pointer' }}>
+                        Quitar</div>
+                    </div>
+                  ))}
+                  {
+                    this.state.allowedUsers.length == 0 && (
+                      <div style={{ margin: '3px 3px', border: '1px solid #cacaca', padding: '7px 14px' }}>
+                        <span style={{ lineHeight: '1' }}><b>No hay usuarios habilitados</b></span>
+                      </div>
+                    )
+                  }
+                </div>
+              </ProfileLabel>
+            </div>
+          )
+        }
         <ProfileLabel>
           Estado del proyecto:
           {/* <InputField
@@ -1103,10 +1293,9 @@ class ProjectFields extends Component {
           <DatePicker
             selected={new Date(this.state.closingDate)}
             name='closingDate'
-            dateFormat="yyyy-MM-dd"
+            dateFormat='yyyy-MM-dd'
             locale={es}
-            onChange={this.handleDateChange}
-          />
+            onChange={this.handleDateChange} />
           {this.state.closingDate
             ? <SpanOk>La fecha de cierre será el: {new Date(this.state.closingDate).toISOString().split('T')[0]}<br />NOTA: El documento se cerrará automáticamente llegada la fecha de cierre</SpanOk>
             : <SpanDanger>Debe definir una fecha de cierre</SpanDanger>
@@ -1148,8 +1337,8 @@ class ProjectFields extends Component {
           {tagsLoaded &&
             <ProfileTags
               name='tags'
-              allTags={this.state.allTags.map(t => ({_id: t.id, name: t.text}))}
-              tags={tags.map(t => t.id)}
+              allTags={this.state.allTags.map((t) => ({ _id: t.id, name: t.text }))}
+              tags={tags.map((t) => t.id)}
               onTagClick={this.handleTagClick}
               width='auto' />
           }
@@ -1162,15 +1351,14 @@ class ProjectFields extends Component {
           <TagsNotificationCheckboxDiv publishedMailSent={this.state.publishedMailSent}>
             { !this.state.publishedMailSent &&
               <input
-                type="checkbox"
+                type='checkbox'
                 name='sendTagsNotification'
                 checked={this.state.sendTagsNotification}
                 onChange={this.toggleTagsNotificationCheckbox} />
             }
-            { !this.state.publishedMailSent ?
-              <span>&nbsp;&nbsp;Enviar notificación a usuarios/as interesados/as</span>
-            :
-              <span>&nbsp;&nbsp;Ya se ha enviado la notificación a usuarios/as interesados/as</span>
+            { !this.state.publishedMailSent
+              ? <span>&nbsp;&nbsp;Enviar notificación a usuarios/as interesados/as</span>
+              : <span>&nbsp;&nbsp;Ya se ha enviado la notificación a usuarios/as interesados/as</span>
             }
           </TagsNotificationCheckboxDiv>
           <SpanOk>
@@ -1182,4 +1370,4 @@ class ProjectFields extends Component {
   }
 }
 
-export default WithDocumentTagsContext(ProjectFields)
+export default WithUserContext(WithDocumentTagsContext(ProjectFields))

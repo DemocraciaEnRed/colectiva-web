@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import UserAvatar from '../user-avatar/component'
+import { eyeSlash } from 'react-icons-kit/fa/eyeSlash'
+import Icon from 'react-icons-kit/Icon'
 
 const Wrapper = styled.div`
   width: ${(props) => props.hasImage ? '100%' : '90%'};
@@ -41,7 +43,7 @@ padding-bottom:1rem;
 
 const StatusTagImage = styled.img`
   position: absolute;
-  top: ${(props) => props.hasImage ? '80px' : '0x'};
+  top: ${(props) => props.hasImage ? '80px' : '0px'};
   right: 0;
   height: 33px;
 `
@@ -87,7 +89,7 @@ const formatDate = (createdAt) => {
   return (createdAt.substring(0, 10).split('-').reverse().join('/'))
 }
 
-const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, status, role, avatarUrl, party, closingDate }) => (
+const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, status, role, avatarUrl, party, closingDate, privateProject }) => (
   <Wrapper hasImage={hasImage} hasStatusButNoImage={status && !hasImage}>
     {/* { status && <StatusTag hasImage={hasImage}>{status}</StatusTag> } */}
     { status && <StatusTagImage src={`/static/assets/states/${status}.svg`} hasImage={hasImage} /> }
@@ -105,6 +107,15 @@ const CardHeaderContent = ({ hasImage, authorId, tagTitle, title, userId, name, 
       }
       <Title>{title} </Title>
       <ClosingDate>Fecha de cierre: {formatDate(closingDate)}</ClosingDate>
+      {
+        privateProject && <div><div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', margin: '10px 0px', backgroundColor: '#222', padding: '2px 8px', width: 'fit-content', borderRadius: '5px' }}
+        >
+          <Icon icon={eyeSlash} size={20} style={{ color: '#FB5735', marginRight: '5px' }} />
+          <p style={{fontSize: '13px', color: '#FFF', fontWeight: '600'}}>
+            PROYECTO PRIVADO
+          </p>
+        </div></div>
+      }
 
     </TextWrapper>
   </Wrapper>

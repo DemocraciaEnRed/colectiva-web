@@ -13,7 +13,7 @@ box-sizing:border-box;
 color: #2d4b5e;
 font-size:1.6em;
 box-sizing:border-box;
-margin:26px 5px;
+margin:10px 5px;
 padding:0px 15px 0px 15px;
 box-sizing:border-box;
 `

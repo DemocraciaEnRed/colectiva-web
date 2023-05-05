@@ -88,7 +88,7 @@ class TogglePublished extends Component {
           !isLoading &&
             <ToggleClick onClick={this.submitToggle}>
               {
-                isPublished && !isLoading ? 'Publico' : 'Oculto'
+                isPublished && !isLoading ? 'Visible' : 'Oculto'
               }&nbsp;&nbsp;
               {
                 isPublished ? <Icon icon={toggleFilled} size={30} style={{ color: 'green' }} /> : <Icon icon={toggle} size={30} style={{ color: '#4a5d84' }} />

@@ -75,6 +75,8 @@ const ProjectBody = ({ project }) => (
                 closure={project.currentVersion.content.closure}
                 tags={project.currentVersion.content.tags}
                 sendTagsNotification={project.currentVersion.content.sendTagsNotification}
+                privateProject={project.private}
+                allowed={project.allowed}
                 publishedMailSent={project.publishedMailSent}
                 setNewFields={setNewFields} />
             }

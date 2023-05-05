@@ -110,7 +110,7 @@ const ProjectHeader = ({ project, section, isPublished, isAuthor, setPublish, to
         </TopBarWrapper>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
           <ProjectStatusCustom status={project.currentVersion.content.status} />
-          <ProjectStatus closed={project.closed} />&nbsp;
+          <ProjectStatus closed={project.closed} privateProject={project.private} />&nbsp;
         </div>
         <ProjectTitle>{project.currentVersion.content.title}</ProjectTitle>
         {/* <ProjectSubtitle
