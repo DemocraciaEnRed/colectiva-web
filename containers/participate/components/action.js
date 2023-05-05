@@ -21,9 +21,9 @@ const styledButton = (props) => (
 )
 
 styledButton.propTypes = {
-  action: PropTypes.text,
-  text: PropTypes.text,
-  target: PropTypes.text
+  action: PropTypes.text || undefined,
+  text: PropTypes.text || undefined,
+  target: PropTypes.text || undefined
 }
 
 export default styledButton

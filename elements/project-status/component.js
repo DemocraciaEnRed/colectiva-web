@@ -12,7 +12,18 @@ const OpenContainer = styled.div`
   // margin-bottom: 10px;
   text-transform: uppercase;
   font-family: var(--medium);
-  border-radius: 2px;
+  // border-radius: 2px;
+`
+const PrivateContainer = styled.div`
+  display: inline-block;
+  font-size: 11px;
+  color: white;
+  background-color: #000000;
+  padding: 4px 15px;
+  // margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: var(--medium);
+  // border-radius: 2px;
 `
 const ClosedContainer = styled.div`
   display: inline-block;
@@ -23,26 +34,45 @@ const ClosedContainer = styled.div`
   // margin-bottom: 10px;
   text-transform: uppercase;
   font-family: var(--medium);
-  border-radius: 2px;
+  // border-radius: 2px;
 `
 
-const ProjectStatus = ({ closed }) => {
+const ProjectStatus = ({ closed, privateProject }) => {
   if (!closed) {
     return (
-      <OpenContainer>
-        Abierto para aportes
-      </OpenContainer>
+      <div>
+        <OpenContainer>
+          Abierto para aportes
+        </OpenContainer>
+        {
+          privateProject && (
+            <PrivateContainer>
+              Privado
+            </PrivateContainer>
+          )
+        }
+      </div>
     )
   }
   return (
-    <ClosedContainer>
-      Finalizó el periodo para aportes
-    </ClosedContainer>
+    <div>
+      <ClosedContainer>
+        Finalizó el periodo para aportes
+      </ClosedContainer>
+      {
+          privateProject && (
+            <PrivateContainer>
+              Privado
+            </PrivateContainer>
+          )
+        }
+    </div>
   )
 }
 
 ProjectStatus.propTypes = {
-  closed: PropTypes.bool
+  closed: PropTypes.bool,
+  privateProject: PropTypes.bool,
 }
 
 export default ProjectStatus
