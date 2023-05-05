@@ -47,7 +47,7 @@ const ProjectStatus = ({ closed, privateProject }) => {
         {
           privateProject && (
             <PrivateContainer>
-              Privado
+              PRIVADO
             </PrivateContainer>
           )
         }
@@ -62,7 +62,7 @@ const ProjectStatus = ({ closed, privateProject }) => {
       {
           privateProject && (
             <PrivateContainer>
-              Privado
+              PRIVADO
             </PrivateContainer>
           )
         }

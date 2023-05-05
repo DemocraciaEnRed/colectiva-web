@@ -12,7 +12,7 @@ margin: 0 1% 30px;
 width: 23%;
 box-shadow: 0 4px 20px 0 rgba(0,0,0,0.05);
 background-color: #F1ECEA;
-border: solid 1px #e9e9e9;
+border: 1px solid #c7c7c7;
 box-sizing: border-box;
 cursor: pointer;
 display: block;

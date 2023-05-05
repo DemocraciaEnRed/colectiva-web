@@ -7,6 +7,7 @@ import {timesCircle} from 'react-icons-kit/fa/timesCircle'
 import {checkCircle} from 'react-icons-kit/fa/checkCircle'
 import {lowVision} from 'react-icons-kit/fa/lowVision'
 import {eye} from 'react-icons-kit/fa/eye'
+import {eyeSlash} from 'react-icons-kit/fa/eyeSlash'
 
 const ClosedProposalWrapper = styled.div`
   width: 100%;
@@ -66,6 +67,8 @@ const ProjectTitle = styled.p`
 `
 const WithIcon = styled.p`
   display: flex
+  width: fit-content;
+  margin: 0 5px;
   color: ${(props) => props.color};
 `
 const MobileDetailWithIcon = styled.span`
@@ -92,7 +95,8 @@ export default ({ project }) => (
       </ProjectTitle>
       <MobileDetail>
         <MobileDetailWithIcon color={project.closed ? 'inherit' : 'green'}>{project.closed ? <Icon icon={timesCircle} size={12} /> : <Icon icon={checkCircle} size={12} /> }&nbsp;&nbsp;{project.closed ? 'Cerrado' : 'Abierto'}</MobileDetailWithIcon>&nbsp;&nbsp;-&nbsp;&nbsp;
-        <MobileDetailWithIcon color={project.published ? 'inherit' : 'purple'}>{project.published ? <Icon icon={eye} size={12} /> : <Icon icon={lowVision} size={12} /> }&nbsp;&nbsp;{project.published ? 'Publico' : 'Oculto'}</MobileDetailWithIcon>&nbsp;&nbsp;-&nbsp;&nbsp;
+        <MobileDetailWithIcon color={project.published ? 'inherit' : 'purple'}>{project.published ? <Icon icon={eye} size={12} /> : <Icon icon={lowVision} size={12} /> }&nbsp;&nbsp;{project.published ? 'Visible' : 'Oculto'}</MobileDetailWithIcon>&nbsp;&nbsp;-&nbsp;&nbsp;
+        <MobileDetailWithIcon color={project.private ? 'purple' : 'green'}>{project.private ? <Icon icon={eyeSlash} size={12} /> : <Icon icon={eye} size={12} /> }&nbsp;&nbsp;{project.private ? 'Privado' : 'Público'}</MobileDetailWithIcon>
         {project.commentsCount} Aport{project.commentsCount > 1 ? 'es' : 'e'}&nbsp;&nbsp;-&nbsp;&nbsp;
         {project.currentVersion.version} {project.currentVersion.version > 1 ? 'Versiones' : 'Versión'}&nbsp;&nbsp;-&nbsp;&nbsp;
         {project.apoyosCount} Apoyo{project.apoyosCount != 1 && 's'}
@@ -102,8 +106,11 @@ export default ({ project }) => (
       </MobileDetail>
     </ProjectsTableCell>
     <ProjectsTableCell  hiddenMobile centered>
-      <WithIcon color={project.closed ? 'inherit' : 'green'}>{project.closed ? <Icon icon={timesCircle} size={15} /> : <Icon icon={checkCircle} size={15} /> }&nbsp;&nbsp;{project.closed ? 'Cerrado' : 'Abierto'}</WithIcon>
-      <WithIcon color={project.published ? 'inherit' : 'purple'}>{project.published ? <Icon icon={eye} size={15} /> : <Icon icon={lowVision} size={15} /> }&nbsp;&nbsp;{project.published ? 'Publico' : 'Oculto'}</WithIcon>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+        <WithIcon color={project.closed ? 'inherit' : 'green'}>{project.closed ? <Icon icon={timesCircle} size={15} /> : <Icon icon={checkCircle} size={15} /> }&nbsp;&nbsp;{project.closed ? 'Cerrado' : 'Abierto'}</WithIcon>
+        <WithIcon color={project.published ? 'inherit' : 'purple'}>{project.published ? <Icon icon={eye} size={15} /> : <Icon icon={lowVision} size={15} /> }&nbsp;&nbsp;{project.published ? 'Visible' : 'Oculto'}</WithIcon>
+        <WithIcon color={project.private ? 'purple' : 'green'}>{project.private ? <Icon icon={eyeSlash} size={15} /> : <Icon icon={eye} size={15} /> }&nbsp;&nbsp;{project.private ? 'Privado' : 'Público'}</WithIcon>
+      </div>
     </ProjectsTableCell>
     <ProjectsTableCell  hiddenMobile centered>
       <p>

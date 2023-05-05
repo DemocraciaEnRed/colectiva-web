@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Icon from 'react-icons-kit/Icon'
-import CardHeaderContent from '../../elements/card-header-content/component'
 import { eyeSlash } from 'react-icons-kit/fa/eyeSlash'
+import CardHeaderContent from '../../elements/card-header-content/component'
 
 const Wrapper = styled.div`
 width: 100%;
@@ -51,6 +51,7 @@ const CardHeader = ({ project, published }) => (
       avatarUrl={project.currentVersion.content && project.currentVersion.content.authorAvatar ? project.currentVersion.content.authorAvatar : null}
       hasImage={!!project.currentVersion.content.imageCover}
       closingDate={project.currentVersion.content.closingDate}
+      privateProject={project.private === true}
       // hasImage={project.currentVersion.content.tags && project.currentVersion.content.tags.length > 0}
       party={project.author.fields && project.author.fields.department ? project.author.fields.department : ''} />
   </Wrapper>
